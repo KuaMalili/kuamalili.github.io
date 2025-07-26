@@ -1,2 +1,0 @@
-# kuamalili.github.io
-Web
