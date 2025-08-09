@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survei Kepuasan Masyarakat - KUA Malili</title>
+    <style>
+        body{font-family:Arial,sans-serif;background-color:#f0f0f5;color:#333;line-height:1.6;margin:0;padding:20px}.container{max-width:800px;margin:auto;background:#fff;padding:25px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.1)}.survey-header{text-align:center;margin-bottom:25px;border-bottom:2px solid #e0e0e0;padding-bottom:15px}.survey-header img{max-width:80px;margin-bottom:10px}.survey-header h1{margin:0;font-size:24px;color:#0fb300}.survey-header p{margin:5px 0 0;font-size:16px;color:#555}.form-section{margin-bottom:20px}.form-section h2{font-size:18px;color:#333;border-bottom:1px solid #ccc;padding-bottom:5px;margin-bottom:15px}.form-group{margin-bottom:15px}.form-group label{display:block;font-weight:700;margin-bottom:5px}.form-control{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;box-sizing:border-box}.radio-group label{font-weight:400;margin-right:20px}.radio-group input[type=radio]{margin-right:5px}.survey-table{width:100%;border-collapse:collapse;margin-top:15px}.survey-table td,.survey-table th{border:1px solid #ddd;padding:10px;text-align:left}.survey-table thead{background-color:#f7f7f7}.survey-table td:not(:first-child){text-align:center}.submit-btn{display:block;width:100%;padding:12px;background-color:#28a745;color:#fff;border:none;border-radius:5px;font-size:16px;font-weight:700;cursor:pointer;transition:background-color .3s}.submit-btn:hover{background-color:#218838}.submit-btn:disabled{background-color:#aaa;cursor:not-allowed}
+
+        /* --- STYLE BARU YANG DITAMBAHKAN --- */
+        .button-group{display:flex;gap:15px;justify-content:space-between}
+        .submit-btn.back-btn{background-color:#6c757d;text-align:center;text-decoration:none}
+        .submit-btn.back-btn:hover{background-color:#5a6268}
+        /* --- AKHIR DARI STYLE BARU --- */
+
+        .footer{text-align:center;margin-top:25px;font-size:14px;color:#777}#status-message{text-align:center;padding:10px;margin-top:20px;border-radius:5px;display:none;font-weight:700}.success{background-color:#d4edda;color:#155724;border:1px solid #c3e6cb}.error{background-color:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="survey-header">
+            <img src="https://sulsel.kemenag.go.id/logo.png" alt="Logo Kemenag" onerror="this.style.display='none'">
+            <h1>SURVEI KEPUASAN MASYARAKAT</h1>
+            <p>KANTOR URUSAN AGAMA KECAMATAN MALILI</p>
+        </div>
+        
+        <form id="survey-form">
+            <div class="form-section" id="informasi-responden">
+                <h2>A. Informasi Responden</h2>
+                <div class="form-group"><label for="nama">Nama Lengkap</label><input type="text" id="nama" name="nama" class="form-control" required></div>
+                <div class="form-group"><label>Jenis Kelamin</label><div class="radio-group"><label><input type="radio" name="jenis_kelamin" value="Laki-laki" required> Laki-laki</label><label><input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan</label></div></div>
+                <div class="form-group"><label for="usia">Usia (Tahun)</label><input type="number" id="usia" name="usia" class="form-control" required></div>
+                <div class="form-group"><label for="pendidikan">Pendidikan Terakhir</label><select id="pendidikan" name="pendidikan" class="form-control" required><option value="">-- Pilih Pendidikan --</option><option value="SD">SD Sederajat</option><option value="SMP">SMP Sederajat</option><option value="SMA">SMA Sederajat</option><option value="D1/D2/D3">Diploma (D1/D2/D3)</option><option value="S1">Sarjana (S1)</option><option value="S2">Magister (S2)</option><option value="S3">Doktor (S3)</option><option value="Lainnya">Lainnya</option></select></div>
+                <div class="form-group"><label for="pekerjaan">Pekerjaan</label><input type="text" id="pekerjaan" name="pekerjaan" class="form-control" required></div>
+                <div class="form-group"><label for="layanan">Jenis Layanan yang Diterima</label><input type="text" id="layanan" name="layanan" class="form-control" placeholder="Contoh: Pengurusan Haji, Sertifikasi Halal, dll." required></div>
+            </div>
+
+            <div class="form-section" id="pendapat-responden">
+                <h2>B. Pendapat Responden Tentang Pelayanan</h2>
+                <table class="survey-table">
+                    <thead><tr><th>Unsur Pelayanan</th><th>Tidak Baik</th><th>Kurang Baik</th><th>Baik</th><th>Sangat Baik</th></tr></thead>
+                    <tbody>
+                        <tr><td>1. Persyaratan pelayanan mudah dipenuhi</td><td><input type="radio" name="u1_persyaratan" value="1" required></td><td><input type="radio" name="u1_persyaratan" value="2"></td><td><input type="radio" name="u1_persyaratan" value="3"></td><td><input type="radio" name="u1_persyaratan" value="4"></td></tr>
+                        <tr><td>2. Prosedur dan alur pelayanan jelas</td><td><input type="radio" name="u2_prosedur" value="1" required></td><td><input type="radio" name="u2_prosedur" value="2"></td><td><input type="radio" name="u2_prosedur" value="3"></td><td><input type="radio" name="u2_prosedur" value="4"></td></tr>
+                        <tr><td>3. Kecepatan waktu dalam memberikan pelayanan</td><td><input type="radio" name="u3_waktu" value="1" required></td><td><input type="radio" name="u3_waktu" value="2"></td><td><input type="radio" name="u3_waktu" value="3"></td><td><input type="radio" name="u3_waktu" value="4"></td></tr>
+                        <tr><td>4. Kewajaran biaya/tarif dalam pelayanan</td><td><input type="radio" name="u4_biaya" value="1" required></td><td><input type="radio" name="u4_biaya" value="2"></td><td><input type="radio" name="u4_biaya" value="3"></td><td><input type="radio" name="u4_biaya" value="4"></td></tr>
+                        <tr><td>5. Kesesuaian produk pelayanan</td><td><input type="radio" name="u5_produk" value="1" required></td><td><input type="radio" name="u5_produk" value="2"></td><td><input type="radio" name="u5_produk" value="3"></td><td><input type="radio" name="u5_produk" value="4"></td></tr>
+                        <tr><td>6. Kemampuan/kompetensi petugas dalam pelayanan</td><td><input type="radio" name="u6_kompetensi" value="1" required></td><td><input type="radio" name="u6_kompetensi" value="2"></td><td><input type="radio" name="u6_kompetensi" value="3"></td><td><input type="radio" name="u6_kompetensi" value="4"></td></tr>
+                        <tr><td>7. Kesopanan dan keramahan petugas</td><td><input type="radio" name="u7_perilaku" value="1" required></td><td><input type="radio" name="u7_perilaku" value="2"></td><td><input type="radio" name="u7_perilaku" value="3"></td><td><input type="radio" name="u7_perilaku" value="4"></td></tr>
+                        <tr><td>8. Kualitas sarana dan prasarana</td><td><input type="radio" name="u8_sarpras" value="1" required></td><td><input type="radio" name="u8_sarpras" value="2"></td><td><input type="radio" name="u8_sarpras" value="3"></td><td><input type="radio" name="u8_sarpras" value="4"></td></tr>
+                        <tr><td>9. Penanganan pengaduan, saran, dan masukan</td><td><input type="radio" name="u9_pengaduan" value="1" required></td><td><input type="radio" name="u9_pengaduan" value="2"></td><td><input type="radio" name="u9_pengaduan" value="3"></td><td><input type="radio" name="u9_pengaduan" value="4"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-section" id="saran-masukan">
+                <h2>C. Saran dan Masukan</h2>
+                <div class="form-group"><label for="saran">Tuliskan saran, kritik, atau masukan Anda.</label><textarea id="saran" name="saran" rows="5" class="form-control"></textarea></div>
+            </div>
+
+            <div class="button-group">
+                <a href="index.html" class="submit-btn back-btn">Kembali Beranda</a>
+                <button type="submit" id="submit-button" class="submit-btn">Kirim Survei</button>
+            </div>
+        </form>
+        
+        <div id="status-message"></div>
+
+        <div class="footer"><p>&copy; 2025 KUA Kecamatan Malili - Kabupaten Luwu Timur</p></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('survey-form');
+        const submitButton = document.getElementById('submit-button');
+        const statusMessage = document.getElementById('status-message');
+        
+        // ==============================================================================
+        // GANTI URL DI BAWAH INI DENGAN URL APLIKASI WEB ANDA DARI LANGKAH 2
+        // ==============================================================================
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxmTVpMnNcRQS9qCJxifjNGYYVnIuZ-qMXg92Ej7VZh17_2YxCbxEc_QeWUNrfz1kNIlQ/exec';
+        // ==============================================================================
+
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // Mencegah form mengirim secara default
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Mengirim...';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        statusMessage.textContent = 'Terima kasih! Data survei Anda telah berhasil dikirim.';
+                        statusMessage.className = 'success';
+                        form.reset(); // Mengosongkan form setelah berhasil
+                    } else {
+                        throw new Error(data.error || 'Terjadi kesalahan yang tidak diketahui.');
+                    }
+                })
+                .catch(error => {
+                    statusMessage.textContent = 'Gagal mengirim data. Silakan coba lagi. Error: ' + error.message;
+                    statusMessage.className = 'error';
+                    console.error('Error!', error.message);
+                })
+                .finally(() => {
+                    statusMessage.style.display = 'block';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Kirim Survei';
+                });
+        });
+    </script>
+</body>
+</html>
