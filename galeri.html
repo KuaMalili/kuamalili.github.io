@@ -157,6 +157,78 @@
             <a href="index.html#contact" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Kontak</a>
         </div>
     </div>
+     <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Announcement Slider
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("announcement-slide");
+        
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change slide every 5 seconds
+        }
+        
+        // Initialize the slider
+        if (slides.length > 0) {
+            showSlides();
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96395e5e063ca24f',t:'MTc1MzI1NDczNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>
+    // Pilih semua elemen yang memiliki kelas 'animate-on-scroll'
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    // Buat observer baru
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Jika elemen masuk ke dalam viewport (terlihat di layar)
+            if (entry.isIntersecting) {
+                // Hapus kelas kondisi awal untuk memicu transisi
+                entry.target.classList.remove('lg:opacity-0');
+                entry.target.classList.remove('lg:-translate-x-20');
+                
+                // Hentikan observing elemen ini setelah animasi berjalan sekali
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Animasi terpicu saat 10% elemen terlihat
+    });
+
+    // Terapkan observer ke setiap elemen yang dipilih
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
+</script>
+</body>
 </header>
 
     <html lang="id">
@@ -296,15 +368,23 @@
             const galleryData = [
                 // === ITEM BARU DITAMBAHKAN DI SINI ===
                 {
+                    imgSrc: "Foto/Nikah KUA 31 Juli 2025.jpg",
+                    imgAlt: "Foto Nikah KUA 31 Juli 2025",
+                    title: "Sah! Pasangan Nur Hadis dan Nur Faizah Menikah di KUA Malili",
+                    description: "",
+                    date: "31 Juli 2025",
+                    instagramLink: "https://www.instagram.com/kua_kotamalili/",
+                    articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/sah-pasangan-nur-hadis-dan-nur-faizah.html"
+                },
+                {
                     imgSrc: "Foto/Khitbah Nikah 27 Juli 2025.jpg",
                     imgAlt: "Foto Prosesi Khitbah di Desa Puncak Indah",
                     title: "Penuh Khidmat, Prosesi Khitbah Pertegas Anjuran dalam Syariat",
-                    description: "",
+                    description: "https://www.instagram.com/kua_kotamalili/",
                     date: "27 Juli 2025",
                     instagramLink: "",
                     articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/penuh-khidmat-prosesi-khitbah-pertegas.html"
                 },
-                // === DATA LAMA DIMULAI DARI SINI ===
                 {
                     imgSrc: "Foto/FGD 24 Juli 2025.jpg",
                     imgAlt: "Foto Kegiatan FGD",
