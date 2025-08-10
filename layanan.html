@@ -3,34 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KUA Kecamatan Malili - Kabupaten Luwu Timur</title>
+    <title>Galeri Kegiatan KUA Kecamatan Malili</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
-        }
-        .hero-pattern {
-            background-color: #075e54;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .announcement-slider {
-            overflow: hidden;
-            position: relative;
-        }
-        .announcement-slide {
-            display: none;
-            animation: fade 1.5s ease-in-out;
-        }
-        @keyframes fade {
-            from {opacity: 0.4}
-            to {opacity: 1}
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .nav-link {
             position: relative;
@@ -54,182 +35,162 @@
         .mobile-menu.hidden {
             transform: translateX(-100%);
         }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #166534 !important; /* green-800 */
+        }
+        .gallery-card {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-card:hover .image-container::after {
+            opacity: 1;
+        }
+        .gallery-card img {
+            transition: transform 0.5s ease;
+        }
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+        .social-link {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #fff;
+            color: #166534;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .gallery-card:hover .social-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .social-link:hover {
+            background-color: #166534;
+            color: white;
+            transform: scale(1.1);
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 font-sans">
 
     <header class="bg-green-800 text-white">
         <div class="container mx-auto px-4 py-2 flex flex-col md:flex-row justify-end items-center space-y-2 md:space-y-0 md:space-x-6">
-            
             <div id="clock" class="text-sm font-semibold tracking-wide"></div>
-
             <div class="flex space-x-3">
                 <a href="https://web.facebook.com/kantor.urusan.agama.malili?locale=id_ID" class="hover:text-green-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
                 </a>
                 <a href="https://www.instagram.com/kua_kotamalili/" class="hover:text-green-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
                 </a>
                 <a href="https://www.youtube.com/@kuakecamatanmalili5144" class="hover:text-green-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
                 </a>
             </div>
         </div>
     </header>
 
-    <script>
-        function updateClock() {
-            // Data untuk format tanggal dalam Bahasa Indonesia
-            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-            
-            // Membuat objek tanggal baru
-            const now = new Date();
-            
-            // Mengambil komponen waktu
-            const dayName = days[now.getDay()];
-            const date = now.getDate();
-            const monthName = months[now.getMonth()];
-            const year = now.getFullYear();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeZone = 'WITA'; // Waktu Indonesia Tengah
-
-            // Menggabungkan menjadi format yang diinginkan
-            const clockString = `${dayName}, ${date} ${monthName} ${year} | ${hours}:${minutes}:${seconds} ${timeZone}`;
-            
-            // Menampilkan string ke elemen HTML
-            document.getElementById('clock').textContent = clockString;
-        }
-
-        // Memanggil fungsi pertama kali agar jam langsung muncul
-        updateClock();
-        // Memperbarui jam setiap detik
-        setInterval(updateClock, 1000);
-    </script>
-</body>
-
-<header class="sticky top-0 w-full z-50">
-    <nav class="bg-green-700 py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="mr-4">
-                    <img src="Logo Kemenag/Logo kemanag.png" alt="Logo KUA Kecamatan Malili" class="h-10 w-10">
+    <header class="sticky top-0 w-full z-40">
+        <nav class="bg-green-700 py-4">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="mr-4">
+                        <img src="Logo Kemenag/Logo kemanag.png" alt="Logo KUA Kecamatan Malili" class="h-10 w-10">
+                    </div>
+                    <div>
+                        <h1 class="text-xl text-white font-bold">KUA MALILI</h1>
+                        <p class="text-xs text-white">Kabupaten Luwu Timur, Sulawesi Selatan</p>
+                    </div>
                 </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="nav-link text-white hover:text-green-200 transition-colors">Beranda</a>
+                    <div class="relative">
+                        <button id="profil-dropdown-btn" class="nav-link text-white hover:text-green-200 transition-colors flex items-center">
+                            Profil
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="profil-dropdown-menu" class="absolute hidden bg-green-700 text-white mt-2 py-2 rounded-md shadow-lg w-48 z-10">
+                            <a href="strukturkua.html" class="block px-4 py-2 text-sm hover:bg-green-600">Struktur KUA</a>
+                            <a href="index.html#visimisi" class="block px-4 py-2 text-sm hover:bg-green-600">VISI MISI</a>
+                            <a href="index.html#sejarah" class="block px-4 py-2 text-sm hover:bg-green-600">SEJARAH KUA MALILI</a>
+                        </div>
+                    </div>
+                    <a href="layanan.html" class="nav-link text-white hover:text-green-200 transition-colors">Layanan</a>
+                    <a href="galeri.html" class="nav-link text-white hover:text-green-200 transition-colors">Galeri</a>
+                    <a href="index.html#contact" class="nav-link text-white hover:text-green-200 transition-colors">Kontak</a>
+                    <form action="search.html" method="GET" class="flex items-center">
+                        <input type="search" name="q" placeholder="Cari..." class="px-2 py-1 text-sm text-gray-800 bg-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <button type="submit" class="bg-green-800 hover:bg-green-600 text-white px-3 py-1 rounded-r-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </button>
+                    </form>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="mobile-menu hidden bg-green-800 md:hidden">
+            <div class="container mx-auto px-4 py-3">
+                <a href="index.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Beranda</a>
                 <div>
-                    <h1 class="text-xl text-white font-bold">KUA MALILI</h1>
-                    <p class="text-xs text-white">Kabupaten Luwu Timur, Sulawesi Selatan</p>
+                    <button id="profil-toggle" class="w-full flex justify-between items-center py-2 text-white hover:bg-green-700 px-3 rounded">
+                        <span>Profil</span>
+                        <svg id="profil-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="profil-submenu" class="hidden pl-4">
+                        <a href="strukturkua.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Struktur KUA</a>
+                        <a href="index.html#visimisi" class="block py-2 text-white hover:bg-green-700 px-3 rounded">VISI MISI</a>
+                        <a href="index.html#sejarah" class="block py-2 text-white hover:bg-green-700 px-3 rounded">SEJARAH KUA MALILI</a>
+                    </div>
+                </div>
+                <a href="layanan.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Layanan</a>
+                <a href="galeri.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Galeri</a>
+                <a href="index.html#contact" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Kontak</a>
+                 <div class="px-3 py-2">
+                    <form action="search.html" method="GET" class="flex items-center">
+                        <input type="search" name="q" placeholder="Cari..." class="w-full px-3 py-2 text-sm text-white bg-green-700 border border-green-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-300">
+                        <button type="submit" class="bg-green-600 hover:bg-green-500 text-white px-3 py-2 rounded-r-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="height: 1.25rem; width: 1.25rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </button>
+                    </form>
                 </div>
             </div>
-            
-            <div class="hidden md:flex space-x-6">
-                <a href="index.html" class="nav-link text-white hover:text-green-200 transition-colors">Beranda</a>
-                <a href="index.html#profile" class="nav-link text-white hover:text-green-200 transition-colors">Profil</a>
-                <a href="layanan.html" class="nav-link text-white hover:text-green-200 transition-colors">Layanan</a>
-                <a href="galeri.html" class="nav-link text-white hover:text-green-200 transition-colors">Galeri</a>
-                <a href="index.html#contact" class="nav-link text-white hover:text-green-200 transition-colors">Kontak</a>
-            </div>
-            
-            <div class="md:hidden">
-                <button id="menu-toggle" class="text-white focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
         </div>
-    </nav>
-    
-    <div id="mobile-menu" class="mobile-menu hidden bg-green-800 md:hidden">
-        <div class="container mx-auto px-4 py-3">
-            <a href="index.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Beranda</a>
-            <a href="index.html#profile" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Profil</a>
-            <a href="layanan.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Layanan</a>
-            <a href="galeri.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Galeri</a>
-            <a href="index.html#contact" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Kontak</a>
-            <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Announcement Slider
-        let slideIndex = 0;
-        const slides = document.getElementsByClassName("announcement-slide");
-        
-        function showSlides() {
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 5000); // Change slide every 5 seconds
-        }
-        
-        // Initialize the slider
-        if (slides.length > 0) {
-            showSlides();
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96395e5e063ca24f',t:'MTc1MzI1NDczNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-<script>
-    // Pilih semua elemen yang memiliki kelas 'animate-on-scroll'
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-    // Buat observer baru
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // Jika elemen masuk ke dalam viewport (terlihat di layar)
-            if (entry.isIntersecting) {
-                // Hapus kelas kondisi awal untuk memicu transisi
-                entry.target.classList.remove('lg:opacity-0');
-                entry.target.classList.remove('lg:-translate-x-20');
-                
-                // Hentikan observing elemen ini setelah animasi berjalan sekali
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1 // Animasi terpicu saat 10% elemen terlihat
-    });
-
-    // Terapkan observer ke setiap elemen yang dipilih
-    animatedElements.forEach(el => {
-        observer.observe(el);
-    });
-</script>
-</body>
-        </div>
-    </div>
-</header>
-
+    </header>
 
     <head>
     <meta charset="UTF-8">
@@ -472,276 +433,77 @@
   <img src="Foto/Persyaratan Nikah.webp" alt="Persyaratan Nikah 2025" class="w-full h-auto rounded-lg shadow-md">
 </div>                           
                 <!-- Statistik Layanan Files -->
-   <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistik Layanan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .tab-button.active { color: #047857; border-bottom: 2px solid #047857; }
-        .chart-content.hidden { display: none; }
-        .loader { 
-            border: 4px solid #f3f3f3; 
-            border-radius: 50%; 
-            border-top: 4px solid #3498db; 
-            width: 40px; 
-            height: 40px; 
-            animation: spin 2s linear infinite; 
-        }
-        @keyframes spin { 
-            0% { transform: rotate(0deg); } 
-            100% { transform: rotate(360deg); } 
-        }
-    </style>
-</head>
-<body class="bg-gray-100 p-4 sm:p-8">
-
-<div id="statistikLayananFiles">
-    <div class="mb-4 flex justify-center border-b">
-        <button id="btnTahunan" class="tab-button active px-4 py-2 font-semibold">Per Tahun</button>
-        <button id="btnBulanan" class="tab-button px-4 py-2 font-semibold text-gray-500">Per Bulan</button>
+  <div id="statistikLayananFiles" class="hidden">
+    <div class="mb-4">
+        <p class="text-gray-600 mb-4">Dokumen terkait penyusunan statistik layanan dan bimbingan masyarakat Islam:</p>
     </div>
-
-    <div id="kontenTahunan" class="chart-content">
-        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md border">
-            <div class="flex justify-center items-center mb-6 gap-4">
-                <label for="selectTahun" class="mr-2 text-sm font-medium text-gray-700">Pilih Tahun:</label>
-                <select id="selectTahun" class="rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></select>
+    <div class="space-y-3">
+        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+                <div>
+                    <p class="font-medium text-gray-800">Laporan Statistik Nikah Tahunan</p>
+                    <p class="text-sm text-gray-500">PDF - 1.2 MB</p>
+                </div>
             </div>
-            <div id="loaderTahunan" class="flex justify-center items-center h-64"><div class="loader"></div></div>
-            <div id="chartContainerTahunan" class="hidden">
-                <canvas id="yearlyChart"></canvas>
-            </div>
+            <button class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Laporan Statistik Nikah Tahunan">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+            </button>
         </div>
-    </div>
-
-    <div id="kontenBulanan" class="chart-content hidden">
-        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md border">
-            <div id="pesanErrorBulanan"></div>
-            <div class="flex justify-center items-center my-6 gap-4">
-                <label for="selectBulan" class="mr-2 text-sm font-medium text-gray-700">Pilih Bulan:</label>
-                <select id="selectBulan" class="rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></select>
+        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <div>
+                    <p class="font-medium text-gray-800">Rekapitulasi Bimbingan Perkawinan</p>
+                    <p class="text-sm text-gray-500">DOCX - 450 KB</p>
+                </div>
             </div>
-            <div id="loaderBulanan" class="flex justify-center items-center h-64"><div class="loader"></div></div>
-            <div id="chartContainerBulanan" class="hidden">
-                 <canvas id="monthlyChart"></canvas>
+            <button class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Rekapitulasi Bimbingan Perkawinan">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
+            <div class="flex items-center">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+                <div>
+                    <p class="font-medium text-gray-800">Panduan Pengisian Formulir Statistik</p>
+                    <p class="text-sm text-gray-500">PDF - 780 KB</p>
+                </div>
             </div>
+            <button class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Panduan Pengisian Formulir Statistik">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+            </button>
+        </div>
+         <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+                <div>
+                    <p class="font-medium text-gray-800">Data Wakaf dan Zakat Terpadu</p>
+                    <p class="text-sm text-gray-500">PDF - 950 KB</p>
+                </div>
+            </div>
+            <button class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Data Wakaf dan Zakat Terpadu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+            </button>
         </div>
     </div>
 </div>
-
-<script>
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwmbKmof9znqkQzxRtVb9pmG1F8Y921a0Xla5XRo__GC-VLDWKwtRmEqp9RbR5m4Ikl/exec'; 
-
-    let dataLayananTahunan = {};
-    let dataLayananBulanan = [];
-    let yearlyChart = null; // Variabel untuk menyimpan objek diagram tahunan
-    let monthlyChart = null; // Variabel untuk menyimpan objek diagram bulanan
-
-    // --- Elemen DOM ---
-    const btnTahunan = document.getElementById('btnTahunan');
-    const btnBulanan = document.getElementById('btnBulanan');
-    const kontenTahunan = document.getElementById('kontenTahunan');
-    const kontenBulanan = document.getElementById('kontenBulanan');
-    // Tahunan
-    const selectTahun = document.getElementById('selectTahun');
-    const loaderTahunan = document.getElementById('loaderTahunan');
-    const chartContainerTahunan = document.getElementById('chartContainerTahunan');
-    // Bulanan
-    const selectBulan = document.getElementById('selectBulan');
-    const loaderBulanan = document.getElementById('loaderBulanan');
-    const chartContainerBulanan = document.getElementById('chartContainerBulanan');
-    const pesanErrorBulanan = document.getElementById('pesanErrorBulanan');
-
-    // --- 3. Fungsi untuk membuat dan memperbarui Diagram ---
-    function renderYearlyChart(tahun) {
-        const data = dataLayananTahunan[tahun];
-        if (!data) return;
-
-        const ctx = document.getElementById('yearlyChart').getContext('2d');
-        const currentYear = new Date().getFullYear();
-        const chartTitle = `Statistik Layanan Tahun ${tahun}${(Number(tahun) === currentYear ? ' (Berjalan)' : '')}`;
-        
-        // Hancurkan diagram lama sebelum membuat yang baru
-        if (yearlyChart) {
-            yearlyChart.destroy();
-        }
-
-        yearlyChart = new Chart(ctx, {
-            type: 'bar', // Tipe diagram: bar (batang)
-            data: {
-                labels: ['Pernikahan', 'Bimbingan Kawin', 'Layanan Wakaf'],
-                datasets: [{
-                    label: 'Jumlah Layanan',
-                    data: [data.nikah ?? 0, data.bimbingan ?? 0, data.wakaf ?? 0],
-                    backgroundColor: [
-                        'rgba(22, 163, 74, 0.6)', // hijau
-                        'rgba(37, 99, 235, 0.6)', // biru
-                        'rgba(234, 179, 8, 0.6)'  // kuning
-                    ],
-                    borderColor: [
-                        'rgba(22, 163, 74, 1)',
-                        'rgba(37, 99, 235, 1)',
-                        'rgba(234, 179, 8, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }, // Sembunyikan legenda karena sudah jelas
-                    title: { display: true, text: chartTitle, font: { size: 16 } }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: { precision: 0 } // Tampilkan angka bulat di sumbu Y
-                    }
-                }
-            }
-        });
-    }
-    
-    function renderMonthlyChart(indexBulan) {
-        const data = dataLayananBulanan[indexBulan];
-        if (!data) return;
-
-        const ctx = document.getElementById('monthlyChart').getContext('2d');
-        
-        // Hancurkan diagram lama sebelum membuat yang baru
-        if (monthlyChart) {
-            monthlyChart.destroy();
-        }
-
-        monthlyChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Pendaftaran Nikah', 'Bimbingan Kawin', 'Layanan Wakaf'],
-                datasets: [{
-                    label: 'Jumlah Layanan',
-                    data: [data.nikah ?? 0, data.bimbingan ?? 0, data.wakaf ?? 0],
-                    backgroundColor: [
-                        'rgba(22, 163, 74, 0.6)',
-                        'rgba(37, 99, 235, 0.6)',
-                        'rgba(234, 179, 8, 0.6)'
-                    ],
-                    borderColor: [
-                        'rgba(22, 163, 74, 1)',
-                        'rgba(37, 99, 235, 1)',
-                        'rgba(234, 179, 8, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false },
-                    title: { display: true, text: `Statistik Bulan: ${data.bulan}`, font: { size: 16 } }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: { precision: 0 }
-                    }
-                }
-            }
-        });
-    }
-
-    // --- Fungsi Fetch Data ---
-    async function fetchData(sheetName) {
-        try {
-            const response = await fetch(`${WEB_APP_URL}?sheet=${sheetName}`);
-            if (!response.ok) throw new Error(`Network response was not ok`);
-            const data = await response.json();
-            if (data.error) throw new Error(`API Error: ${data.error}`);
-            return data;
-        } catch (error) {
-            console.error('Gagal memuat data:', error);
-            return null;
-        }
-    }
-
-    // --- Inisialisasi ---
-    document.addEventListener('DOMContentLoaded', async () => {
-        let [yearlyRaw, monthlyRaw] = await Promise.all([
-            fetchData('DataTahunan'),
-            fetchData('DataBulanan')
-        ]);
-        
-        // Proses Data Tahunan
-        if (yearlyRaw && yearlyRaw.length > 0) {
-            dataLayananTahunan = yearlyRaw.reduce((acc, item) => {
-                acc[item.tahun] = { nikah: item.nikah, bimbingan: item.bimbingan, wakaf: item.wakaf };
-                return acc;
-            }, {});
-            const currentYear = new Date().getFullYear();
-            selectTahun.innerHTML = Object.keys(dataLayananTahunan).sort((a,b) => b-a).map(tahun => 
-                `<option value="${tahun}" ${Number(tahun) === currentYear ? 'selected' : ''}>
-                    ${(Number(tahun) === currentYear) ? `${tahun} (Berjalan)` : tahun}
-                </option>`
-            ).join('');
-            
-            // Panggil fungsi render diagram
-            renderYearlyChart(selectTahun.value);
-            loaderTahunan.classList.add('hidden');
-            chartContainerTahunan.classList.remove('hidden');
-        } else {
-            loaderTahunan.innerHTML = `<p class="text-red-600">Gagal memuat data tahunan.</p>`;
-        }
-
-        // Proses Data Bulanan
-        if (!monthlyRaw || monthlyRaw.length === 0 || typeof monthlyRaw[0]?.nikah !== 'number') {
-            pesanErrorBulanan.innerHTML = `
-                <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
-                    <p class="font-bold">Peringatan</p>
-                    <p>Data bulanan dari Google Sheet tidak terbaca. Pastikan nama kolom: <strong>Bulan, Nikah, Bimbingan, Wakaf</strong>. Data di bawah adalah contoh.</p>
-                </div>`;
-            monthlyRaw = [
-                { bulan: "Contoh Januari", nikah: 70, bimbingan: 140, wakaf: 12 },
-                { bulan: "Contoh Februari", nikah: 65, bimbingan: 130, wakaf: 8 }
-            ];
-        }
-
-        dataLayananBulanan = monthlyRaw;
-        let defaultMonthIndex = new Date().getMonth(); // Bulan saat ini (Juli = 6)
-        if (defaultMonthIndex >= dataLayananBulanan.length) {
-            defaultMonthIndex = dataLayananBulanan.length - 1;
-        }
-        selectBulan.innerHTML = dataLayananBulanan.map((item, index) => 
-            `<option value="${index}" ${index === defaultMonthIndex ? 'selected' : ''}>
-                ${item.bulan}
-            </option>`
-        ).join('');
-        
-        // Panggil fungsi render diagram
-        renderMonthlyChart(selectBulan.value);
-        loaderBulanan.classList.add('hidden');
-        chartContainerBulanan.classList.remove('hidden');
-    });
-
-    // --- Event Listeners ---
-    btnTahunan.addEventListener('click', () => {
-        kontenTahunan.classList.remove('hidden'); kontenBulanan.classList.add('hidden');
-        btnTahunan.classList.add('active'); btnBulanan.classList.remove('active');
-    });
-    btnBulanan.addEventListener('click', () => {
-        kontenBulanan.classList.remove('hidden'); kontenTahunan.classList.add('hidden');
-        btnBulanan.classList.add('active'); btnTahunan.classList.remove('active');
-    });
-
-    // Langsung panggil fungsi render diagram saat pilihan berubah
-    selectTahun.addEventListener('change', (e) => renderYearlyChart(e.target.value));
-    selectBulan.addEventListener('change', (e) => renderMonthlyChart(e.target.value));
-</script>
-
-</body>
-</html>
                 
                 <!-- Sistem Informasi Files -->
                 <div id="sistemInformasiFiles" class="hidden">
@@ -921,9 +683,9 @@
     </div>
     <div class="space-y-3">
         
-        <div class="file-item p-3 border-2 border-green-600 bg-green-50 rounded-lg flex items-center justify-between transition-colors">
+        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
             <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <div>
@@ -1375,8 +1137,80 @@
             </div>
         </div>
     </footer>
+ <script>
+        // --- Navigation and Clock Script ---
+        function updateClock() {
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            const now = new Date();
+            const dayName = days[now.getDay()];
+            const date = now.getDate();
+            const monthName = months[now.getMonth()];
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeZone = 'WITA';
+            const clockString = `${dayName}, ${date} ${monthName} ${year} | ${hours}:${minutes}:${seconds} ${timeZone}`;
+            const clockElement = document.getElementById('clock');
+            if(clockElement) clockElement.textContent = clockString;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
 
-    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        const profilToggle = document.getElementById('profil-toggle');
+        const profilSubmenu = document.getElementById('profil-submenu');
+        const profilArrow = document.getElementById('profil-arrow');
+        if (profilToggle) {
+            profilToggle.addEventListener('click', () => {
+                profilSubmenu.classList.toggle('hidden');
+                profilArrow.classList.toggle('rotate-180');
+            });
+        }
+
+        const profilDropdownBtn = document.getElementById('profil-dropdown-btn');
+        const profilDropdownMenu = document.getElementById('profil-dropdown-menu');
+        if (profilDropdownBtn) {
+            profilDropdownBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                profilDropdownMenu.classList.toggle('hidden');
+            });
+            profilDropdownMenu.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+        }
+
+        window.addEventListener('click', () => {
+            if (profilDropdownMenu && !profilDropdownMenu.classList.contains('hidden')) {
+                profilDropdownMenu.classList.add('hidden');
+            }
+        });
+
+        document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#') || href.includes('index.html#')) {
+                     // Allow default behavior for cross-page anchors
+                } else {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
         function openModal(serviceType) {
             const modal = document.getElementById('fileModal');
             const modalTitle = document.getElementById('modalTitle');
@@ -1428,6 +1262,5 @@
             }
         });
     </script>
-
 </body>
 </html>
