@@ -314,7 +314,22 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 bg-gray-50">
+    <section id="jadwal-sholat" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-green-800 mb-2">Jadwal Sholat Digital</h2>
+                <div class="w-24 h-1 bg-green-800 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Untuk wilayah Malili, Kabupaten Luwu Timur dan sekitarnya.</p>
+                <p id="prayer-date" class="text-gray-800 font-semibold mt-4 text-lg"></p>
+            </div>
+            <div id="prayer-times" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
+                </div>
+             <div class="text-center mt-8 text-sm text-gray-500">
+                <p>Sumber data: Kementerian Agama RI</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-green-800 mb-2">Hubungi Kami</h2>
@@ -745,6 +760,76 @@
         observer.observe(el);
     });
 </script>
+
+<script>
+    function displayPrayerTimes() {
+        // --- Date Generation ---
+        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        const now = new Date(); // In a real scenario, you'd fetch the date corresponding to the prayer times
+        const dayName = days[now.getDay()];
+        const date = now.getDate();
+        const monthName = months[now.getMonth()];
+        const year = now.getFullYear();
+        const todayString = `${dayName}, ${date} ${monthName} ${year}`;
+
+        // --- Prayer Time Data (Hardcoded for this example) ---
+        // In a real application, this would be fetched from an API
+        // e.g., fetch('https://api.kemenag.go.id/v1/sholat/jadwal/1603/2025/08/13')
+        const prayerData = {
+            imsak: '04:40',
+            subuh: '04:50',
+            terbit: '06:05',
+            dhuha: '06:30',
+            dzuhur: '12:12',
+            ashar: '15:33',
+            maghrib: '18:15',
+            isya: '19:25'
+        };
+
+        const prayerOrder = ['imsak', 'subuh', 'terbit', 'dhuha', 'dzuhur', 'ashar', 'maghrib', 'isya'];
+        const prayerLabels = {
+            imsak: 'Imsak',
+            subuh: 'Subuh',
+            terbit: 'Terbit',
+            dhuha: 'Dhuha',
+            dzuhur: 'Dzuhur',
+            ashar: 'Ashar',
+            maghrib: 'Maghrib',
+            isya: 'Isya'
+        };
+
+        const prayerTimesContainer = document.getElementById('prayer-times');
+        const prayerDateContainer = document.getElementById('prayer-date');
+
+        if(prayerDateContainer) {
+            prayerDateContainer.textContent = todayString;
+        }
+
+        if (prayerTimesContainer) {
+            prayerTimesContainer.innerHTML = ''; // Clear any placeholders
+            prayerOrder.forEach(prayer => {
+                const time = prayerData[prayer];
+                const label = prayerLabels[prayer];
+
+                const cardHTML = `
+                    <div class="bg-white p-4 rounded-lg shadow-md transition-transform transform hover:-translate-y-1">
+                        <h4 class="font-bold text-green-800 text-lg">${label}</h4>
+                        <p class="text-3xl font-mono font-bold text-gray-900 mt-2">${time}</p>
+                        <p class="text-sm text-gray-500">WITA</p>
+                    </div>
+                `;
+                prayerTimesContainer.innerHTML += cardHTML;
+            });
+        }
+    }
+
+    // Ensure the function runs after the DOM is fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', displayPrayerTimes);
+    } else {
+        displayPrayerTimes();
+    }
+    </script>
 </body>
 </html>
-
