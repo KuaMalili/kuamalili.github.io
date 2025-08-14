@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan KUA Malili</title>
+    <title>KUA Malili - Kabupaten Luwu Timur</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+        }
+        .hero-pattern {
+            background-color: #075e54;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .announcement-slider {
+            overflow: hidden;
+            position: relative;
+        }
+        .announcement-slide {
+            display: none;
+            animation: fade 1.5s ease-in-out;
+        }
+        @keyframes fade {
+            from {opacity: 0.4}
+            to {opacity: 1}
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .nav-link {
             position: relative;
@@ -35,1179 +55,408 @@
         .mobile-menu.hidden {
             transform: translateX(-100%);
         }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+        /* Custom Swiper Styles */
         .swiper-pagination-bullet-active {
-            background-color: #166534 !important; /* green-800 */
+            background-color: #065f46 !important; /* Tailwind green-800 */
         }
-        .gallery-card {
-            transition: transform 0.3s ease;
-            cursor: pointer;
+        .swiper-button-next, .swiper-button-prev {
+            color: #065f46 !important; /* Tailwind green-800 */
+            transition: transform 0.2s ease;
         }
-        .gallery-card:hover {
-            transform: translateY(-5px);
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+             transform: scale(1.1);
         }
-        .image-container {
-            position: relative;
-            overflow: hidden;
-        }
-        .image-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-card:hover .image-container::after {
-            opacity: 1;
-        }
-        .gallery-card img {
-            transition: transform 0.5s ease;
-        }
-        .gallery-card:hover img {
-            transform: scale(1.05);
-        }
-        .social-link {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background-color: #fff;
-            color: #166534;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+        .swiper-slide {
+            height: auto; /* Ensure slides can grow */
             display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 10;
+            flex-direction: column;
         }
-        .gallery-card:hover .social-link {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .social-link:hover {
-            background-color: #166534;
-            color: white;
-            transform: scale(1.1);
+        .swiper-slide > div {
+            flex: 1; /* Make the inner div take full height */
         }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-50">
 
     <header class="bg-green-800 text-white">
         <div class="container mx-auto px-4 py-2 flex flex-col md:flex-row justify-end items-center space-y-2 md:space-y-0 md:space-x-6">
+            
             <div id="clock" class="text-sm font-semibold tracking-wide"></div>
+
             <div class="flex space-x-3">
                 <a href="https://web.facebook.com/kantor.urusan.agama.malili?locale=id_ID" class="hover:text-green-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
                 </a>
                 <a href="https://www.instagram.com/kua_kotamalili/" class="hover:text-green-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                    </svg>
                 </a>
                 <a href="https://www.youtube.com/@kuakecamatanmalili5144" class="hover:text-green-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                    </svg>
                 </a>
             </div>
         </div>
     </header>
 
-    <header class="sticky top-0 w-full z-40">
-        <nav class="bg-green-700 py-4">
-            <div class="container mx-auto px-4 flex justify-between items-center">
-                <div class="flex items-center">
-                    <div class="mr-4">
-                        <img src="Logo Kemenag/Logo kemanag.png" alt="Logo KUA Kecamatan Malili" class="h-10 w-10">
-                    </div>
-                    <div>
-                        <h1 class="text-xl text-white font-bold">KUA MALILI</h1>
-                        <p class="text-xs text-white">Kabupaten Luwu Timur, Sulawesi Selatan</p>
-                    </div>
+    <script>
+        function updateClock() {
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            const now = new Date();
+            const dayName = days[now.getDay()];
+            const date = now.getDate();
+            const monthName = months[now.getMonth()];
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeZone = 'WITA';
+            const clockString = `${dayName}, ${date} ${monthName} ${year} | ${hours}:${minutes}:${seconds} ${timeZone}`;
+            document.getElementById('clock').textContent = clockString;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
+<header class="sticky top-0 w-full z-50">
+    <nav class="bg-green-700 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="mr-4">
+                    <img src="Logo Kemenag/Logo kemanag.png" alt="Logo KUA Kecamatan Malili" class="h-10 w-10">
                 </div>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="nav-link text-white hover:text-green-200 transition-colors">Beranda</a>
-                    <div class="relative">
-                        <button id="profil-dropdown-btn" class="nav-link text-white hover:text-green-200 transition-colors flex items-center">
-                            Profil
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div id="profil-dropdown-menu" class="absolute hidden bg-green-700 text-white mt-2 py-2 rounded-md shadow-lg w-48 z-10">
-                            <a href="strukturkua.html" class="block px-4 py-2 text-sm hover:bg-green-600">Struktur KUA</a>
-                            <a href="visimisi.html" class="block px-4 py-2 text-sm hover:bg-green-600">VISI MISI</a>
-                            <a href="index.html#sejarah" class="block px-4 py-2 text-sm hover:bg-green-600">SEJARAH KUA MALILI</a>
-                        </div>
-                    </div>
-                    <a href="layanan.html" class="nav-link text-white hover:text-green-200 transition-colors">Layanan</a>
-                    <a href="galeri.html" class="nav-link text-white hover:text-green-200 transition-colors">Galeri</a>
-                    <a href="index.html#contact" class="nav-link text-white hover:text-green-200 transition-colors">Kontak</a>
-                    <form action="search.html" method="GET" class="flex items-center">
-                        <input type="search" name="q" placeholder="Cari..." class="px-2 py-1 text-sm text-gray-800 bg-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <button type="submit" class="bg-green-800 hover:bg-green-600 text-white px-3 py-1 rounded-r-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                        </button>
-                    </form>
-                </div>
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-white focus:outline-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                    </button>
-                </div>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="mobile-menu hidden bg-green-800 md:hidden">
-            <div class="container mx-auto px-4 py-3">
-                <a href="index.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Beranda</a>
                 <div>
-                    <button id="profil-toggle" class="w-full flex justify-between items-center py-2 text-white hover:bg-green-700 px-3 rounded">
-                        <span>Profil</span>
-                        <svg id="profil-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <h1 class="text-xl text-white font-bold">KUA MALILI</h1>
+                    <p class="text-xs text-white">Kabupaten Luwu Timur, Sulawesi Selatan</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="nav-link text-white hover:text-green-200 transition-colors">Beranda</a>
+                <div class="relative">
+                    <button id="profil-dropdown-btn" class="nav-link text-white hover:text-green-200 transition-colors flex items-center">
+                        Profil
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div id="profil-submenu" class="hidden pl-4">
-                        <a href="strukturkua.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Struktur KUA</a>
-                        <a href="visimisi.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">VISI MISI</a>
-                        <a href="index.html#sejarah" class="block py-2 text-white hover:bg-green-700 px-3 rounded">SEJARAH KUA MALILI</a>
+                    <div id="profil-dropdown-menu" class="absolute hidden bg-green-700 text-white mt-2 py-2 rounded-md shadow-lg w-48 z-10">
+                        <a href="strukturkua.html" class="block px-4 py-2 text-sm hover:bg-green-600">Struktur KUA</a>
+                        <a href="visimisi.html" class="block px-4 py-2 text-sm hover:bg-green-600">VISI MISI</a>
+                        <a href="#sejarah" class="block px-4 py-2 text-sm hover:bg-green-600">SEJARAH KUA MALILI</a>
                     </div>
                 </div>
-                <a href="layanan.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Layanan</a>
-                <a href="galeri.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Galeri</a>
-                <a href="index.html#contact" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Kontak</a>
-                 <div class="px-3 py-2">
-                    <form action="search.html" method="GET" class="flex items-center">
-                        <input type="search" name="q" placeholder="Cari..." class="w-full px-3 py-2 text-sm text-white bg-green-700 border border-green-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-300">
-                        <button type="submit" class="bg-green-600 hover:bg-green-500 text-white px-3 py-2 rounded-r-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="height: 1.25rem; width: 1.25rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                        </button>
-                    </form>
-                </div>
+                <a href="layanan.html" class="nav-link text-white hover:text-green-200 transition-colors">Layanan</a>
+                <a href="galeri.html" class="nav-link text-white hover:text-green-200 transition-colors">Galeri</a>
+                <a href="#contact" class="nav-link text-white hover:text-green-200 transition-colors">Kontak</a>
+                <form action="search.html" method="GET" class="flex items-center">
+                    <input type="search" name="q" placeholder="Cari..." class="px-2 py-1 text-sm text-gray-800 bg-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <button type="submit" class="bg-green-800 hover:bg-green-600 text-white px-3 py-1 rounded-r-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </form>
             </div>
-        </div>
-    </header>
-
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan KUA</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .modal-backdrop {
-            backdrop-filter: blur(3px);
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .file-item:hover {
-            background-color: #f0f9f0;
-        }
-        body {
-            background-color: #f8fafc;
-        }
-    </style>
-</head>
-<body class="min-h-screen p-4 md:p-8">
-    <div class="container mx-auto">
-    <div class="text-center mb-12 mt-8">
-        <h2 class="text-3xl font-bold text-green-800 mb-2">Layanan KUA</h2>
-        <div class="w-24 h-1 bg-green-800 mx-auto"></div>
-        <p class="text-gray-600 text-center mt-4 mb-8">KUA Malili menyediakan berbagai layanan untuk memenuhi kebutuhan masyarakat di bidang keagamaan</p>
-        
-        <section id="layanan">
-            <div class="space-y-3 md:hidden">
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('pendaftaranNikah')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Pendaftaran Nikah</h3>
-                        <p class="text-gray-500 text-sm">Layanan persyaratan pendaftaran nikah.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('statistikLayanan')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Statistik Layanan</h3>
-                        <p class="text-gray-500 text-sm">Penyusunan statistik layanan Islam.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('sistemInformasi')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Sistem Informasi</h3>
-                        <p class="text-gray-500 text-sm">Pengelolaan dokumentasi dan sistem KUA.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('keluargaSakinah')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Keluarga Sakinah</h3>
-                        <p class="text-gray-500 text-sm">Pelayanan bimbingan keluarga sakinah.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('kemasjidan')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Kemasjidan</h3>
-                        <p class="text-gray-500 text-sm">Pelayanan bimbingan kemasjidan.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('hisabRukyat')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Hisab Rukyat</h3>
-                        <p class="text-gray-500 text-sm">Bimbingan hisab rukyat dan syari'ah.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('peneranganAgama')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Penerangan Agama</h3>
-                        <p class="text-gray-500 text-sm">Bimbingan dan penerangan agama Islam.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('zakatWakaf')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Zakat & Wakaf</h3>
-                        <p class="text-gray-500 text-sm">Pelayanan bimbingan zakat dan wakaf.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('ketatausahaan')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Ketatausahaan</h3>
-                        <p class="text-gray-500 text-sm">Layanan tata usaha & kerumahtanggaan.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 flex items-center space-x-4 cursor-pointer" onclick="openModal('manasikHaji')">
-                    <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    </div>
-                    <div class="flex-grow text-left">
-                        <h3 class="font-semibold text-green-800">Manasik Haji</h3>
-                        <p class="text-gray-500 text-sm">Bimbingan manasik haji reguler.</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-            </div>
-
-            <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('pendaftaranNikah')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Pendaftaran Nikah</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Layanan persyaratan pendaftaran nikah sesuai ketentuan.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('statistikLayanan')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Statistik Layanan</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Penyusunan statistik layanan dan bimbingan masyarakat Islam.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('sistemInformasi')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Sistem Informasi</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Pengelolaan dokumentasi dan sistem informasi manajemen KUA.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('keluargaSakinah')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Keluarga Sakinah</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Pelayanan bimbingan keluarga sakinah.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('kemasjidan')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Kemasjidan</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Pelayanan bimbingan kemasjidan.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('hisabRukyat')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Hisab Rukyat</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Pelayanan bimbingan hisab rukyat dan pembinaan syari'ah.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('peneranganAgama')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Penerangan Agama</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Pelayanan bimbingan dan penerangan agama Islam.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('zakatWakaf')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Zakat & Wakaf</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Pelayanan bimbingan zakat dan wakaf.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('ketatausahaan')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Ketatausahaan</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Pelaksanaan ketatausahaan dan kerumahtanggaan KUA.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer" onclick="openModal('manasikHaji')">
-                    <div class="bg-green-800 text-white p-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2">Manasik Haji</h3>
-                        <p class="text-gray-600 mb-3 text-sm">Layanan bimbingan manasik haji bagi jemaah haji reguler.</p>
-                        <div class="text-green-800 font-medium hover:text-green-700 flex items-center text-sm">
-                            Selengkapnya
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-</div>
-
-    <div id="fileModal" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-backdrop">
-        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
-            <div class="bg-green-800 text-white px-6 py-4 flex justify-between items-center">
-                <h3 id="modalTitle" class="text-xl font-semibold">Dokumen Layanan</h3>
-                <button onclick="closeModal()" class="text-white hover:text-gray-200 focus:outline-none">
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
-            <div class="p-6 overflow-y-auto flex-grow">
-                <div id="pendaftaranNikahFiles" class="hidden">
-                    <div class="mb-4">
-                        <p class="text-gray-600 mb-4">Dokumen terkait pendaftaran nikah:</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                                </svg>
-                                <div>
-                                    <p class="font-medium text-gray-800">Syarat Pendaftaran Nikah</p>
-                                    <p class="text-sm text-gray-500">PDF - 654 KB</p>
-                                </div>
-                            </div>
-                            <a href="Dokumen/Persyaratan Nikah.pdf" download="Persyaratan Nikah.pdf" class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Syarat Pendaftaran Nikah">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                <div>
-                                    <p class="font-medium text-gray-800">Blanko Pendaftaran Nikah</p>
-                                    <p class="text-sm text-gray-500">DOC - 87 KB</p>
-                                </div>
-                            </div>
-                            <a href="Dokumen/Blanko Pendaftaran Nikah.doc" download="Blanko PEndaftaran Nikah.doc" class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Blanko Pendaftaran Nikah">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>                           
-                <div id="statistikLayananFiles" class="hidden">
-    <div class="mb-4">
-        <p class="text-gray-600 mb-4">Dokumen terkait penyusunan statistik layanan dan bimbingan masyarakat Islam:</p>
-    </div>
-    <div class="space-y-3">
-        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
-            <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                </svg>
-                <div>
-                    <p class="font-medium text-gray-800">Laporan Statistik Nikah Tahunan</p>
-                    <p class="text-sm text-gray-500">PDF - 1.2 MB</p>
-                </div>
-            </div>
-            <button class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Laporan Statistik Nikah Tahunan">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-            </button>
         </div>
-        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
-            <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-                <div>
-                    <p class="font-medium text-gray-800">Rekapitulasi Bimbingan Perkawinan</p>
-                    <p class="text-sm text-gray-500">DOCX - 450 KB</p>
-                </div>
-            </div>
-            <button class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Rekapitulasi Bimbingan Perkawinan">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-            </button>
-        </div>
-        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
-            <div class="flex items-center">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                </svg>
-                <div>
-                    <p class="font-medium text-gray-800">Panduan Pengisian Formulir Statistik</p>
-                    <p class="text-sm text-gray-500">PDF - 780 KB</p>
-                </div>
-            </div>
-            <button class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Panduan Pengisian Formulir Statistik">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-            </button>
-        </div>
-         <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors duration-200 ease-in-out hover:bg-green-50">
-            <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                </svg>
-                <div>
-                    <p class="font-medium text-gray-800">Data Wakaf dan Zakat Terpadu</p>
-                    <p class="text-sm text-gray-500">PDF - 950 KB</p>
-                </div>
-            </div>
-            <button class="text-green-700 hover:text-green-900 focus:outline-none" aria-label="Unduh Data Wakaf dan Zakat Terpadu">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
-</div>
-                
-                <div id="sistemInformasiFiles" class="hidden">
-                    <div class="mb-4">
-                        <p class="text-gray-600 mb-4">Dokumen sistem informasi manajemen KUA:</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Panduan SIMKUA</p>
-                                    <p class="text-sm text-gray-500">PDF - 1.5 MB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Format Dokumentasi KUA</p>
-                                    <p class="text-sm text-gray-500">DOCX - 280 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Alur Sistem Informasi KUA</p>
-                                    <p class="text-sm text-gray-500">PDF - 650 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="keluargaSakinahFiles" class="hidden">
-                    <div class="mb-4">
-                        <p class="text-gray-600 mb-4">Dokumen bimbingan keluarga sakinah:</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Buku Panduan Keluarga Sakinah</p>
-                                    <p class="text-sm text-gray-500">PDF - 2.8 MB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Formulir Konsultasi Keluarga</p>
-                                    <p class="text-sm text-gray-500">PDF - 180 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Materi Bimbingan Pranikah</p>
-                                    <p class="text-sm text-gray-500">PPTX - 1.2 MB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="kemasjidanFiles" class="hidden">
-                    <div class="mb-4">
-                        <p class="text-gray-600 mb-4">Dokumen bimbingan kemasjidan:</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Panduan Pengelolaan Masjid</p>
-                                    <p class="text-sm text-gray-500">PDF - 1.8 MB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Formulir Pendataan Masjid</p>
-                                    <p class="text-sm text-gray-500">PDF - 210 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Materi Pembinaan Takmir</p>
-                                    <p class="text-sm text-gray-500">PPTX - 950 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="hisabRukyatFiles">
-    <div class="mb-4">
-        <p class="text-gray-600 mb-4">Dokumen bimbingan hisab rukyat:</p>
-    </div>
-    <div class="space-y-3">
-        
-        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-            <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                <div>
-                    <p class="font-medium">Ephemeris Hisab Rukyat 2025</p>
-                    <p class="text-sm text-gray-500">21,3 MB</p>
-                </div>
-            </div>
-            <a href="Ephemeris 2025/ephemeris-hisab-rukyat-2025-676573cbdcadf.pdf" download="ephemeris-hisab-rukyat-2025.pdf" class="text-green-700 hover:text-green-900 focus:outline-none" title="Unduh File Anda">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-            </a>
-        </div>
-
-        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-            <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                <div>
-                    <p class="font-medium">Kalender Hijriyah</p>
-                    <p class="text-sm text-gray-500">PDF - 1.2 MB</p>
-                </div>
-            </div>
-            <a href="Dokumen/Kalender Hijriyah 2025.pdf" class="text-green-700 hover:text-green-900 focus:outline-none" title="Unduh">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-            </a>
-        </div>
-        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-            <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                <div>
-                    <p class="font-medium">Panduan Hisab Rukyat</p>
-                    <p class="text-sm text-gray-500">PDF - 2.5 MB</p>
-                </div>
-            </div>
-            <a href="#" class="text-green-700 hover:text-green-900 focus:outline-none" title="Unduh">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-            </a>
-        </div>
-    </div>
-</div>
-                
-                <div id="peneranganAgamaFiles" class="hidden">
-                    <div class="mb-4">
-                        <p class="text-gray-600 mb-4">Dokumen bimbingan dan penerangan agama:</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Materi Dakwah</p>
-                                    <p class="text-sm text-gray-500">PDF - 1.5 MB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Jadwal Penyuluhan</p>
-                                    <p class="text-sm text-gray-500">PDF - 280 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Materi Khutbah Jumat</p>
-                                    <p class="text-sm text-gray-500">DOCX - 420 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="zakatWakafFiles" class="hidden">
-                    <div class="mb-4">
-                        <p class="text-gray-600 mb-4">Dokumen terkait zakat dan wakaf:</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Formulir Pendaftaran Wakaf</p>
-                                    <p class="text-sm text-gray-500">PDF - 210 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Perhitungan Zakat</p>
-                                    <p class="text-sm text-gray-500">PDF - 175 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Panduan Wakaf Produktif</p>
-                                    <p class="text-sm text-gray-500">DOCX - 420 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Daftar Lembaga Penerima Zakat</p>
-                                    <p class="text-sm text-gray-500">PDF - 190 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="ketatausahaanFiles" class="hidden">
-                    <div class="mb-4">
-                        <p class="text-gray-600 mb-4">Dokumen ketatausahaan KUA:</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">SOP Pelayanan KUA</p>
-                                    <p class="text-sm text-gray-500">PDF - 850 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Format Surat Menyurat</p>
-                                    <p class="text-sm text-gray-500">DOCX - 320 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Struktur Organisasi KUA</p>
-                                    <p class="text-sm text-gray-500">PDF - 380 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="manasikHajiFiles" class="hidden">
-                    <div class="mb-4">
-                        <p class="text-gray-600 mb-4">Dokumen bimbingan manasik haji:</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Buku Panduan Manasik Haji</p>
-                                    <p class="text-sm text-gray-500">PDF - 3.5 MB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Jadwal Bimbingan Manasik</p>
-                                    <p class="text-sm text-gray-500">PDF - 240 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Materi Presentasi Manasik</p>
-                                    <p class="text-sm text-gray-500">PPTX - 1.8 MB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="file-item p-3 border rounded-lg flex items-center justify-between transition-colors">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <div>
-                                    <p class="font-medium">Doa-doa Haji dan Umrah</p>
-                                    <p class="text-sm text-gray-500">PDF - 520 KB</p>
-                                </div>
-                            </div>
-                            <button class="text-green-700 hover:text-green-900 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-gray-50 px-6 py-4 flex justify-end">
-                <button onclick="closeModal()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-2">
-                    Tutup
+    </nav>
+    
+    <div id="mobile-menu" class="mobile-menu hidden bg-green-800 md:hidden">
+        <div class="container mx-auto px-4 py-3">
+            <a href="index.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Beranda</a>
+            <div>
+                <button id="profil-toggle" class="w-full flex justify-between items-center py-2 text-white hover:bg-green-700 px-3 rounded">
+                    <span>Profil</span>
+                    <svg id="profil-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
+                <div id="profil-submenu" class="hidden pl-4">
+                    <a href="strukturkua.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Struktur KUA</a>
+                    <a href="visimisi.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">VISI MISI</a>
+                    <a href="#sejarah" class="block py-2 text-white hover:bg-green-700 px-3 rounded">SEJARAH KUA MALILI</a>
+                </div>
+            </div>
+            <a href="layanan.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Layanan</a>
+            <a href="galeri.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Galeri</a>
+            <a href="#contact" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Kontak</a>
+            <div class="px-3 py-2">
+                <form action="search.html" method="GET" class="flex items-center">
+                    <input type="search" name="q" placeholder="Cari Layanan atau Galeri..." class="w-full px-3 py-2 text-sm text-white bg-green-700 border border-green-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-300">
+                    <button type="submit" class="bg-green-600 hover:bg-green-500 text-white px-3 py-2 rounded-r-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="height: 1.25rem; width: 1.25rem;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
+</header>
 
-    <script>
-        function openModal(serviceType) {
-            const modal = document.getElementById('fileModal');
-            const modalTitle = document.getElementById('modalTitle');
+    <section class="hero-pattern text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Selamat Datang di KUA Malili</h1>
+                    <p class="text-lg mb-6">Melayani dengan sepenuh hati untuk masyarakat Kecamatan Malili, Kabupaten Luwu Timur</p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="layanan.html" class="bg-transparent border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-green-800 transition-colors text-center">Layanan Kami</a>
+                        <a href="#contact" class="bg-transparent border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-green-800 transition-colors text-center">Hubungi Kami</a>
+                        <button id="open-survey-btn" class="bg-transparent border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-green-800 transition-colors text-center">Isi Survei Kepuasan</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-end 
+            animate-on-scroll 
+            lg:opacity-0 lg:-translate-x-20 
+            transition-all duration-5 ease-out">
+    <img src="Foto/Animasi KUA Malili.png" alt="Animasi KUA Malili">
+</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-4 border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center">
+                <div class="bg-red-600 text-white px-4 py-2 rounded-lg mr-4">
+                    <span class="font-bold">PENGUMUMAN</span>
+                </div>
+                <div class="announcement-slider flex-1 overflow-hidden">
+                    <div class="announcement-slide">
+                        <p>Pendaftaran nikah dapat dilakukan secara online melalui aplikasi SIMKAH</p>
+                    </div>
+                    <div class="announcement-slide">
+                        <p>Jam layanan KUA: Senin-Kamis pukul 08.00-16.00 WITA, Jumat pukul 08.00-16.30 WITA</p>
+                    </div>
+                    <div class="announcement-slide">
+                        <p>Biaya pencatatan nikah di kantor KUA GRATIS pada jam kerja</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="infographics" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-green-800 mb-2">Infografis Layanan</h2>
+                <div class="w-24 h-1 bg-green-800 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Informasi layanan kami dalam bentuk visual yang mudah dipahami.</p>
+            </div>
             
-            // Hide all file sections first
-            const allFileSections = document.querySelectorAll('[id$="Files"]');
-            allFileSections.forEach(section => {
-                section.classList.add('hidden');
-            });
+            <div class="relative">
+                <div class="swiper mySwiper p-4">
+                    <div class="swiper-wrapper pb-12">
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
+                                <img src="Foto/gas nikah.jpg" alt="Infografis Gerakan Sadar Pencatatan Nikah" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center mt-auto">
+                                    <h3 class="font-semibold text-green-800">Gerakan Sadar Pencatatan Nikah</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
+                                <img src="https://placehold.co/600x800/075e54/ffffff?text=Prosedur\nIsbat+Nikah" alt="Infografis Prosedur Isbat Nikah" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center mt-auto">
+                                    <h3 class="font-semibold text-green-800">Prosedur Isbat Nikah</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
+                                <img src="https://placehold.co/600x800/075e54/ffffff?text=Layanan\ndi+Luar+Nikah" alt="Infografis Layanan di Luar Nikah" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center mt-auto">
+                                    <h3 class="font-semibold text-green-800">Layanan di Luar Nikah</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
+                                <img src="https://placehold.co/600x800/075e54/ffffff?text=Biaya\nLayanan+Nikah" alt="Infografis Biaya Layanan Nikah" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center mt-auto">
+                                    <h3 class="font-semibold text-green-800">Biaya Layanan Nikah</h3>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="swiper-slide">
+                            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
+                                <img src="https://placehold.co/600x800/075e54/ffffff?text=Pencegahan\nStunting" alt="Infografis Pencegahan Stunting" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center mt-auto">
+                                    <h3 class="font-semibold text-green-800">Pencegahan Stunting</h3>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="swiper-slide">
+                            <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
+                                <img src="https://placehold.co/600x800/075e54/ffffff?text=Layanan\nWakaf" alt="Infografis Layanan Wakaf" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center mt-auto">
+                                    <h3 class="font-semibold text-green-800">Layanan Wakaf</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                 <div class="swiper-button-prev -left-2"></div>
+                 <div class="swiper-button-next -right-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jadwal-sholat" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-green-800 mb-2">Jadwal Sholat Digital</h2>
+                <div class="w-24 h-1 bg-green-800 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Untuk wilayah Malili, Kabupaten Luwu Timur dan sekitarnya.</p>
+                <p id="prayer-date" class="text-gray-800 font-semibold mt-4 text-lg"></p>
+            </div>
+            <div id="prayer-times" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
+                </div>
+             <div class="text-center mt-8 text-sm text-gray-500">
+                <p>Sumber data: Kementerian Agama RI</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-green-800 mb-2">Hubungi Kami</h2>
+                <div class="w-24 h-1 bg-green-800 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan atau membutuhkan informasi lebih lanjut</p>
+            </div>
             
-            // Show the appropriate section based on service type
-            const fileSection = document.getElementById(serviceType + 'Files');
-            if (fileSection) {
-                fileSection.classList.remove('hidden');
-            }
-            
-            // Set the modal title
-            switch(serviceType) {
-                case 'pendaftaranNikah':
-                    modalTitle.textContent = 'Syarat Pendaftaran Nikah';
-                    break;
-                case 'statistikLayanan':
-                    modalTitle.textContent = 'Dokumen Statistik Layanan';
-                    break;
-                case 'sistemInformasi':
-                    modalTitle.textContent = 'Dokumen Sistem Informasi KUA';
-                    break;
-                case 'keluargaSakinah':
-                    modalTitle.textContent = 'Dokumen Bimbingan Keluarga Sakinah';
-                    break;
-                case 'kemasjidan':
-                    modalTitle.textContent = 'Dokumen Bimbingan Kemasjidan';
-                    break;
-                case 'hisabRukyat':
-                    modalTitle.textContent = 'Dokumen Hisab Rukyat';
-                    break;
-                case 'peneranganAgama':
-                    modalTitle.textContent = 'Dokumen Penerangan Agama';
-                    break;
-                case 'zakatWakaf':
-                    modalTitle.textContent = 'Dokumen Zakat & Wakaf';
-                    break;
-                case 'ketatausahaan':
-                    modalTitle.textContent = 'Dokumen Ketatausahaan KUA';
-                    break;
-                case 'manasikHaji':
-                    modalTitle.textContent = 'Dokumen Bimbingan Manasik Haji';
-                    break;
-                default:
-                    modalTitle.textContent = 'Dokumen Layanan';
-            }
-            
-            // Show the modal
-            modal.classList.remove('hidden');
-            
-            // Add event listener to close modal when clicking outside
-            modal.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-        }
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4">Informasi Kontak</h3>
+                        
+                        <div class="flex items-start mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-800 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-green-800">Alamat</h4>
+                                <p class="text-gray-600">Jl. Pongsimpin, Upt Malili Sp I, Kec. Malili, Kabupaten Luwu Timur, Sulawesi Selatan, 92936</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-800 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-green-800">Jam Layanan</h4>
+                                <p class="text-gray-600">Senin - Kamis: 08.00 - 16.00 WITA</p>
+                                <p class="text-gray-600">Jumat: 08.00 - 16.30 WITA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4">Lokasi Kami</h3>
+                        <div class="bg-gray-200 h-64 rounded-lg shadow">
+                           <iframe
+                                width="100%"
+                                height="100%"
+                                style="border:0;"
+                                class="rounded-lg"
+                                loading="lazy"
+                                allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://maps.google.com/maps?q=Kantor%20KUA%20Kec.%20Malili%2C%20Jl.%20Pongsimpin%2C%20Upt%20Malili%20Sp%20I%2C%20Kec.%20Malili%2C%20Kabupaten%20Luwu%20Timur%2C%20Sulawesi%20Selatan%2092936%2C%20Indonesia&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                           </iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-8">
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4">Formulir</h3>
+                        
+                        <form id="contact-form" class="space-y-4">
+    <div>
+        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+        <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+    </div>
+    
+    <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+    </div>
+    
+    <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Nomor Telepon</label>
+        <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+    </div>
+    
+    <div>
+        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subjek</label>
+        <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+    </div>
+    
+    <div>
+        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
+    </div>
+    
+    <div>
+        <button type="submit" id="submit-button" class="w-full bg-green-800 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+            Kirim Pesan
+        </button>
+    </div>
+</form>
+
+<script>
+    const form = document.getElementById('contact-form');
+    const submitButton = document.getElementById('submit-button');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxzGmKtiqkJEsDFktQq3hyve283JEcMAttPgjvkGZh1qJHxm0hzQv23z2ezz4diOsi3BQ/exec';
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
         
-        function closeModal() {
-            const modal = document.getElementById('fileModal');
-            modal.classList.add('hidden');
-        }
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96433fe9c5b02ce1',t:'MTc1MzM1ODM0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+        submitButton.disabled = true;
+        submitButton.textContent = 'Mengirim...';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success!', data);
+                alert('Pesan Anda berhasil terkirim!');
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Terjadi kesalahan. Silakan coba lagi.');
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Kirim Pesan';
+            });
+    });
+</script>
+                        
+                        <div class="mt-4 text-center text-sm text-gray-500">
+                            <p>Isi formulir ini untuk saran dan pesan untuk kami</p>
+                            <p>Terima Kasih</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="bg-green-900 text-white pt-12 pb-6">
         <div class="container mx-auto px-4">
@@ -1223,7 +472,7 @@
                         </a>
                         <a href="https://www.instagram.com/kua_kotamalili/" class="hover:text-green-300 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
                             </svg>
                         </a>
                         <a href="https://www.youtube.com/@kuakecamatanmalili5144" class="hover:text-green-300 transition-colors">
@@ -1260,31 +509,102 @@
             </div>
             
             <div class="border-t border-green-800 pt-6">
-                <p class="text-center text-sm">© 2025 KUA Malili - Kabupaten Luwu Timur. Hak Cipta Dilindungi.</p>
-            </div>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 text-center text-sm">
+                    <p>© 2025 KUA Malili - Kabupaten Luwu Timur. Hak Cipta Dilindungi.</p>
+                    <a href="https://hits.seeyoufarm.com">
+                        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fkua-malili-luwu-timur.go.id&count_bg=%2310B981&title_bg=%23065F46&icon=&title=Pengunjung&edge_flat=false"/>
+                    </a>
+                </div>
+
+                <div class="mt-4 flex justify-center">
+                    <script type="text/javascript">
+                    var _Hasync= _Hasync|| [];
+                    _Hasync.push(['Histats.start', '1,4968837,4,0,0,0,00010000']);
+                    _Hasync.push(['Histats.fasi', '1']);
+                    _Hasync.push(['Histats.track_hits', '']);
+                    (function() {
+                    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+                    hs.src = ('//s10.histats.com/js15_as.js');
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+                    })();
+                    </script>
+                    <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4968837&101" alt="visitor stats" border="0"></a></noscript>
+                </div>
+                </div>
         </div>
     </footer>
- <script>
-        // --- Navigation and Clock Script ---
-        function updateClock() {
-            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-            const now = new Date();
-            const dayName = days[now.getDay()];
-            const date = now.getDate();
-            const monthName = months[now.getMonth()];
-            const year = now.getFullYear();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeZone = 'WITA';
-            const clockString = `${dayName}, ${date} ${monthName} ${year} | ${hours}:${minutes}:${seconds} ${timeZone}`;
-            const clockElement = document.getElementById('clock');
-            if(clockElement) clockElement.textContent = clockString;
-        }
-        updateClock();
-        setInterval(updateClock, 1000);
 
+    <div id="survey-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-full max-w-lg shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <button id="close-survey-btn" class="absolute top-0 right-0 mt-4 mr-4 text-gray-400 hover:text-gray-600">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+                    <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 8h.01M12 12h.01M15 12h.01M12 8h.01" />
+                    </svg>
+                </div>
+                
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Survei Kepuasan Layanan</h3>
+                <div class="mt-2 px-7 py-3">
+                    <p class="text-sm text-gray-500 mb-4">
+                        Kami ingin mendengar pendapat Anda! Mohon berikan penilaian Anda mengenai layanan kami.
+                    </p>
+                    
+                    <form action="survei.html" method="GET" class="text-left">
+                        <div class="mb-4">
+                            <label for="service-rating" class="block text-sm font-medium text-gray-700 mb-2">Bagaimana Anda menilai kualitas layanan kami secara keseluruhan?</label>
+                            <div class="flex justify-center space-x-2">
+                                <label class="flex items-center space-x-1">
+                                    <input type="radio" name="rating" value="1" class="form-radio text-green-600">
+                                    <span>1</span>
+                                </label>
+                                <label class="flex items-center space-x-1">
+                                    <input type="radio" name="rating" value="2" class="form-radio text-green-600">
+                                    <span>2</span>
+                                </label>
+                                <label class="flex items-center space-x-1">
+                                    <input type="radio" name="rating" value="3" class="form-radio text-green-600">
+                                    <span>3</span>
+                                </label>
+                                <label class="flex items-center space-x-1">
+                                    <input type="radio" name="rating" value="4" class="form-radio text-green-600">
+                                    <span>4</span>
+                                </label>
+                                <label class="flex items-center space-x-1">
+                                    <input type="radio" name="rating" value="5" class="form-radio text-green-600">
+                                    <span>5</span>
+                                </label>
+                            </div>
+                             <p class="text-xs text-gray-500 text-center mt-1">(1: Sangat Buruk, 5: Sangat Baik)</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="comments" class="block text-sm font-medium text-gray-700 mb-1">Saran atau Masukan (Opsional)</label>
+                            <textarea id="comments" name="comments" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        </div>
+
+                        <div class="items-center px-4 py-3">
+                            <button id="submit-survey" type="submit" class="w-full bg-green-800 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                                Lanjutkan ke Halaman Survei
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        // --- All Navigation Logic ---
+
+        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         if (menuToggle) {
@@ -1293,6 +613,7 @@
             });
         }
         
+        // Mobile Profile Submenu Toggle
         const profilToggle = document.getElementById('profil-toggle');
         const profilSubmenu = document.getElementById('profil-submenu');
         const profilArrow = document.getElementById('profil-arrow');
@@ -1303,91 +624,212 @@
             });
         }
 
+        // Desktop Profile Dropdown (Click-triggered)
         const profilDropdownBtn = document.getElementById('profil-dropdown-btn');
         const profilDropdownMenu = document.getElementById('profil-dropdown-menu');
         if (profilDropdownBtn) {
             profilDropdownBtn.addEventListener('click', (event) => {
-                event.stopPropagation();
+                event.stopPropagation(); // Prevent window click event from firing
                 profilDropdownMenu.classList.toggle('hidden');
             });
+
+            // Don't close menu if clicking inside the menu
             profilDropdownMenu.addEventListener('click', (event) => {
                 event.stopPropagation();
             });
         }
 
+        // Global click listener to close dropdowns when clicking outside
         window.addEventListener('click', () => {
             if (profilDropdownMenu && !profilDropdownMenu.classList.contains('hidden')) {
                 profilDropdownMenu.classList.add('hidden');
             }
         });
 
-        document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('#') || href.includes('index.html#')) {
-                     // Allow default behavior for cross-page anchors
-                } else {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                e.preventDefault();
+                
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Hide mobile menu ONLY if the clicked link is NOT in a submenu
+                if (!mobileMenu.classList.contains('hidden')) {
+                    if (!this.closest('#profil-submenu')) {
+                        mobileMenu.classList.add('hidden');
                     }
                 }
             });
         });
-        
-        function openModal(serviceType) {
-            const modal = document.getElementById('fileModal');
-            const modalTitle = document.getElementById('modalTitle');
-            
-            // Sembunyikan semua bagian file terlebih dahulu
-            const allFileSections = document.querySelectorAll('[id$="Files"]');
-            allFileSections.forEach(section => {
-                section.style.display = 'none'; // Gunakan style.display
-            });
-            
-            // Tampilkan bagian yang sesuai berdasarkan jenis layanan
-            const fileSection = document.getElementById(serviceType + 'Files');
-            if (fileSection) {
-                // Ambil konten dari file index.html dan masukkan ke modal
-                // Ini adalah pendekatan sederhana. Untuk aplikasi nyata, Anda mungkin ingin memuat konten ini secara dinamis.
-                const originalContent = document.querySelector(`#${serviceType}Files`).innerHTML;
-                fileSection.innerHTML = originalContent;
-                fileSection.style.display = 'block';
+
+        // --- Other Page Logic ---
+
+        // Announcement Slider
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("announcement-slide");
+        function showSlides() {
+            if (slides.length === 0) return;
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
             }
-            
-            // Atur judul modal
-            const titles = {
-                pendaftaranNikah: 'Syarat Pendaftaran Nikah',
-                statistikLayanan: 'Dokumen Statistik Layanan',
-                sistemInformasi: 'Dokumen Sistem Informasi KUA',
-                keluargaSakinah: 'Dokumen Bimbingan Keluarga Sakinah',
-                kemasjidan: 'Dokumen Bimbingan Kemasjidan',
-                hisabRukyat: 'Dokumen Hisab Rukyat',
-                peneranganAgama: 'Dokumen Penerangan Agama',
-                zakatWakaf: 'Dokumen Zakat & Wakaf',
-                ketatausahaan: 'Dokumen Ketatausahaan KUA',
-                manasikHaji: 'Dokumen Bimbingan Manasik Haji'
-            };
-            modalTitle.textContent = titles[serviceType] || 'Dokumen Layanan';
-            
-            // Tampilkan modal
-            modal.classList.remove('hidden');
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change slide every 5 seconds
+        }
+        showSlides();
+        
+        // Survey Modal Logic
+        const surveyModal = document.getElementById('survey-modal');
+        const openSurveyBtn = document.getElementById('open-survey-btn');
+        const closeSurveyBtn = document.getElementById('close-survey-btn');
+
+        if (openSurveyBtn) {
+            openSurveyBtn.addEventListener('click', () => {
+                if (surveyModal) surveyModal.classList.remove('hidden');
+            });
+        }
+
+        if (closeSurveyBtn) {
+            closeSurveyBtn.addEventListener('click', () => {
+                if (surveyModal) surveyModal.classList.add('hidden');
+            });
         }
         
-        function closeModal() {
-            const modal = document.getElementById('fileModal');
-            modal.classList.add('hidden');
-        }
-        
-        // Tutup modal dengan tombol Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
+        window.addEventListener('click', (event) => {
+            if (event.target == surveyModal) {
+                surveyModal.classList.add('hidden');
             }
         });
+
+        // Initialize Swiper
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+            loop: true,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: { // sm
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: { // md
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1024: { // lg
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                }
+            },
+        });
+
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96395e5e063ca24f',t:'MTc1MzI1NDczNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>
+    // Pilih semua elemen yang memiliki kelas 'animate-on-scroll'
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    // Buat observer baru
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('lg:opacity-0');
+                entry.target.classList.remove('lg:-translate-x-20');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+<script>
+    function displayPrayerTimes() {
+        // --- Date Generation ---
+        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        const now = new Date(); // In a real scenario, you'd fetch the date corresponding to the prayer times
+        const dayName = days[now.getDay()];
+        const date = now.getDate();
+        const monthName = months[now.getMonth()];
+        const year = now.getFullYear();
+        const todayString = `${dayName}, ${date} ${monthName} ${year}`;
+
+        // --- Prayer Time Data (Hardcoded for this example) ---
+        // In a real application, this would be fetched from an API
+        // e.g., fetch('https://api.kemenag.go.id/v1/sholat/jadwal/1603/2025/08/13')
+        const prayerData = {
+            imsak: '04:40',
+            subuh: '04:50',
+            terbit: '06:05',
+            dhuha: '06:30',
+            dzuhur: '12:12',
+            ashar: '15:33',
+            maghrib: '18:15',
+            isya: '19:25'
+        };
+
+        const prayerOrder = ['imsak', 'subuh', 'terbit', 'dhuha', 'dzuhur', 'ashar', 'maghrib', 'isya'];
+        const prayerLabels = {
+            imsak: 'Imsak',
+            subuh: 'Subuh',
+            terbit: 'Terbit',
+            dhuha: 'Dhuha',
+            dzuhur: 'Dzuhur',
+            ashar: 'Ashar',
+            maghrib: 'Maghrib',
+            isya: 'Isya'
+        };
+
+        const prayerTimesContainer = document.getElementById('prayer-times');
+        const prayerDateContainer = document.getElementById('prayer-date');
+
+        if(prayerDateContainer) {
+            prayerDateContainer.textContent = todayString;
+        }
+
+        if (prayerTimesContainer) {
+            prayerTimesContainer.innerHTML = ''; // Clear any placeholders
+            prayerOrder.forEach(prayer => {
+                const time = prayerData[prayer];
+                const label = prayerLabels[prayer];
+
+                const cardHTML = `
+                    <div class="bg-white p-4 rounded-lg shadow-md transition-transform transform hover:-translate-y-1">
+                        <h4 class="font-bold text-green-800 text-lg">${label}</h4>
+                        <p class="text-3xl font-mono font-bold text-gray-900 mt-2">${time}</p>
+                        <p class="text-sm text-gray-500">WITA</p>
+                    </div>
+                `;
+                prayerTimesContainer.innerHTML += cardHTML;
+            });
+        }
+    }
+
+    // Ensure the function runs after the DOM is fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', displayPrayerTimes);
+    } else {
+        displayPrayerTimes();
+    }
     </script>
 </body>
 </html>
