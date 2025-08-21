@@ -113,7 +113,7 @@
                     </button>
                     <div id="profil-submenu" class="hidden pl-4">
                         <a href="strukturkua.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Struktur KUA</a>
-                        <a href="index.html#visimisi" class="block py-2 text-white hover:bg-green-700 px-3 rounded">VISI MISI</a>
+                        <a href="visimisi.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">VISI MISI</a>
                         <a href="index.html#sejarah" class="block py-2 text-white hover:bg-green-700 px-3 rounded">SEJARAH KUA MALILI</a>
                     </div>
                 </div>
@@ -262,86 +262,40 @@
             }
         });
 
-        // Data simulasi untuk Layanan dan Galeri
+        // --- Search Logic ---
+        // Data is sourced from layanan.html and galeri.html
         const searchableData = [
-            {
-                type: 'Layanan',
-                title: 'Pendaftaran Nikah',
-                description: 'Layanan persyaratan pendaftaran nikah sesuai ketentuan',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Statistik Layanan',
-                description: 'Penyusunan statistik layanan dan bimbingan masyarakat Islam',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Sistem Informasi',
-                description: 'Pengelolaan dokumentasi dan sistem informasi KUA',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Keluarga Sakinah',
-                description: 'Pelayanan bimbingan keluarga sakinah',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Kemasjidan',
-                description: 'Layanan bimbingan kemasjidan',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Hisab Rukyat',
-                description: 'Pelayanan bimbingan hisab rukyat dan pembinaan syariah',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Penerangan Agama',
-                description: 'Pelayanan bimbingan dan penerangan agama Islam',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Zakat & Wakaf',
-                description: 'Pelayanan bimbingan zakat dan wakaf',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Ketatausahaan',
-                description: 'Pelaksanaan ketatausahaan dan kerumahtanggaan KUA',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Layanan',
-                title: 'Manasik Haji',
-                description: 'Layanan bimbingan manasik haji jemaah haji reguler',
-                url: 'layanan.html'
-            },
-            {
-                type: 'Galeri',
-                title: 'Foto Kegiatan Bimbingan Perkawinan',
-                description: 'Dokumentasi foto dari acara bimbingan perkawinan (BIMWIN) yang diadakan di KUA Malili.',
-                url: 'galeri.html#foto-bimwin'
-            },
-            {
-                type: 'Galeri',
-                title: 'Video Prosesi Akad Nikah',
-                description: 'Video singkat yang menampilkan suasana khidmat prosesi akad nikah di balai nikah KUA Malili.',
-                url: 'galeri.html#video-akad'
-            },
-            {
-                type: 'Galeri',
-                title: 'Penyerahan Sertifikat Tanah Wakaf',
-                description: 'Momen penyerahan sertifikat tanah wakaf kepada nadzir (pengelola wakaf) yang disaksikan oleh kepala KUA.',
-                url: 'galeri.html#sertifikat-wakaf'
-            }
+            // Data from layanan.html
+            { type: 'Layanan', title: 'Pendaftaran Nikah', description: 'Layanan persyaratan pendaftaran nikah sesuai ketentuan', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Statistik Layanan', description: 'Penyusunan statistik layanan dan bimbingan masyarakat Islam', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Sistem Informasi', description: 'Pengelolaan dokumentasi dan sistem informasi KUA', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Keluarga Sakinah', description: 'Pelayanan bimbingan keluarga sakinah', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Kemasjidan', description: 'Layanan bimbingan kemasjidan', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Hisab Rukyat', description: 'Pelayanan bimbingan hisab rukyat dan pembinaan syariah', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Penerangan Agama', description: 'Pelayanan bimbingan dan penerangan agama Islam', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Zakat & Wakaf', description: 'Pelayanan bimbingan zakat dan wakaf', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Ketatausahaan', description: 'Pelaksanaan ketatausahaan dan kerumahtanggaan KUA', url: 'layanan.html' },
+            { type: 'Layanan', title: 'Manasik Haji', description: 'Layanan bimbingan manasik haji jemaah haji reguler', url: 'layanan.html' },
+            
+            // Data from galeri.html
+            { type: 'Galeri', title: 'Penyuluh Agama Katolik KUA Malili Bekali Siswa SMKN 1 Luwu Timur Pemahaman Gereja Sebagai Umat Allah', description: 'Suasana kegiatan Implementasi Kampung Moderasi Beragama di KUA Mangkutana.', url: 'artikel/penyuluh_katolik_kua_malili_materi_smkn1lutim_20082025.html' },
+            { type: 'Galeri', title: 'Penyuluh Agama KUA Malili Ikuti Implementasi Kampung Moderasi Beragama di KUA Mangkutana', description: 'Suasana kegiatan Implementasi Kampung Moderasi Beragama di KUA Mangkutana.', url: 'artikel/implementasi_kmb_20082025.html' },
+            { type: 'Galeri', title: 'Supandi, S.Sy. Resmi Menjabat Fungsional Penghulu Ahli Pertama di KUA Malili', description: 'Kepala Kemenag Luwu Timur melantik pejabat fungsional.', url: 'artikel/pelantikan_fungsional_19082025.html' },
+            { type: 'Galeri', title: 'Semarakkan HUT Ke-80 RI, KBCI Luwu Timur Mengikuti Riding Kemerdekaan', description: 'Foto Bersama Anggota KBCI Luwu Timur.', url: 'artikel/riding_hut_ri_18082025.html' },
+            { type: 'Galeri', title: 'Semangat HUT Ke-80 RI, Pegawai KUA Malili Ikuti Rangkaian Upacara', description: 'Suasana Upacara HUT Ke-80 RI di halaman Kantor Kemenag Luwu Timur.', url: 'artikel/upacara_hut_ri_17082025.html' },
+            { type: 'Galeri', title: 'Pimpin Doa di Renungan Suci, Penyuluh Agama Islam KUA Malili Ajak Refleksi', description: 'Suasana khidmat Apel Kehormatan dan Renungan Suci di Taman Makam Pahlawan Malili.', url: 'artikel/renungan_17082025.html' },
+            { type: 'Galeri', title: 'Semarak HUT RI ke-80, KUA Malili Sukseskan Jalan Sehat Kerukunan', description: 'Suasana Jalan Sehat Kerukunan Kemenag Luwu Timur di Bundaran Tiga Danau.', url: 'artikel/jalan_sehat_16082025.html' },
+            { type: 'Galeri', title: 'Semarak HUT RI ke-80, KUA Malili Memeriahkan Acara Lomba', description: 'Suasana kemeriahan lomba dalam rangka HUT RI ke-80 di halaman Kemenag Luwu Timur.', url: 'lomba hut 15082025.html' },
+            { type: 'Galeri', title: 'PAI KUA Islam Malili Sosialisasikan Gerakan Sadar Pencatatan Nikah di Desa Atue', description: 'Sosialisasi Gas di Desa Atue', url: 'gas 14082025.html' },
+            { type: 'Galeri', title: 'PW IPARI Sulsel Gelar Bimtek Tupoksi Penyuluh Agama di Kemenag Luwu Timur', description: 'bimtek 12082025', url: 'bimtek pai lutim 12082025.html' },
+            { type: 'Galeri', title: 'Penuh Khidmat, Seorang Muallaf Sah Nikahi Kekasih Hati di KUA Malili', description: 'Menikah Kantor 11082025', url: 'pernikahan kantor 11082025.html' },
+            { type: 'Galeri', title: 'Sinergi KUA Malili dan PKK Puncak Indah, Sosialisasikan Gerakan Sadar Pencatatan Nikah', description: 'TP PKK Desa Puncak Indah (10082025)', url: 'pkk puncak indah 10082025.html' },
+            { type: 'Galeri', title: 'PAI KUA Malili Gaungkan Gerakan Sadar Pencatatan Nikah di MT Nurul Iman', description: 'Majelis Taklim Nurul Iman (09082025)', url: 'Majelis Taklim Nurul Iman 08092025.html' },
+            { type: 'Galeri', title: 'Perkuat Ketahanan Keluarga, KUA Malili Gelar Bimbingan Keluarga Sakinah', description: 'Bimbingan keluarga 31072025', url: 'https://kuakecamatanmalili.blogspot.com/2025/07/perkuat-ketahanan-keluarga-penyuluh-dan.html' },
+            { type: 'Galeri', title: 'Sah! Pasangan Nur Hadis dan Nur Faizah Menikah di KUA Malili', description: 'Foto Nikah KUA 31 Juli 2025', url: 'https://kuakecamatanmalili.blogspot.com/2025/07/sah-pasangan-nur-hadis-dan-nur-faizah.html' },
+            { type: 'Galeri', title: 'Penuh Khidmat, Prosesi Khitbah Pertegas Anjuran dalam Syariat', description: 'Foto Prosesi Khitbah di Desa Puncak Indah', url: 'https://kuakecamatanmalili.blogspot.com/2025/07/penuh-khidmat-prosesi-khitbah-pertegas.html' },
+            { type: 'Galeri', title: 'FGD: Penguatan Deteksi Dini Konflik Berdimensi Keagamaan', description: 'Foto Kegiatan FGD', url: 'https://kuakecamatanmalili.blogspot.com/2025/07/tingkatkan-kewaspadaan-penghulu-dan.html' },
+            { type: 'Galeri', title: 'Sosialisasi BRUS di MTS As\'adiyah dan MAN Luwu Timur', description: 'Foto Kegiatan Sosialisasi BRUS KUA Malili', url: 'https://siaran-berita.com/sosialisasi-brus-kua-malili-mengunjungi-mts-asadiyah-malili-dan-man-luwu-timur/' }
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -370,7 +324,7 @@
                                     <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">${item.title}</h3>
                                     <p class="text-gray-600 text-sm mb-4">${item.description}</p>
                                     <a href="${item.url}" class="font-semibold text-green-700 hover:text-green-900 transition-colors">
-                                        Lihat Selengkapnya &rarr;
+                                        Lihat Selengkapnya →
                                     </a>
                                 </div>
                             </div>
@@ -386,26 +340,6 @@
                 noResultsMessage.classList.remove('hidden');
             }
         });
-
-        // Script untuk jam dan menu mobile (diambil dari index.html)
-        function updateClock() {
-            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-            const now = new Date();
-            const dayName = days[now.getDay()];
-            const date = now.getDate();
-            const monthName = months[now.getMonth()];
-            const year = now.getFullYear();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeZone = 'WITA';
-            const clockString = `${dayName}, ${date} ${monthName} ${year} | ${hours}:${minutes}:${seconds} ${timeZone}`;
-            const clockEl = document.getElementById('clock');
-            if(clockEl) clockEl.textContent = clockString;
-        }
-        updateClock();
-        setInterval(updateClock, 1000);
     </script>
 </body>
 </html>
