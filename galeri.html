@@ -6,8 +6,8 @@
     <title>Galeri Kegiatan KUA Kecamatan Malili</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -35,37 +35,13 @@
         .mobile-menu.hidden {
             transform: translateX(-100%);
         }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .swiper-pagination-bullet-active {
-            background-color: #166534 !important; /* green-800 */
-        }
         .gallery-card {
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
         .gallery-card:hover {
             transform: translateY(-5px);
-        }
-        .image-container {
-            position: relative;
-            overflow: hidden;
-        }
-        .image-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-card:hover .image-container::after {
-            opacity: 1;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         .gallery-card img {
             transition: transform 0.5s ease;
@@ -73,32 +49,44 @@
         .gallery-card:hover img {
             transform: scale(1.05);
         }
-        .social-link {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background-color: #fff;
-            color: #166534;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 10;
+        .pagination-link {
+            transition: all 0.2s ease-in-out;
         }
-        .gallery-card:hover .social-link {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .social-link:hover {
-            background-color: #166534;
+        .pagination-link.active {
+            background-color: #166534; /* green-800 */
             color: white;
-            transform: scale(1.1);
+            border-color: #166534;
+        }
+        .pagination-link:hover {
+            background-color: #15803d; /* green-700 */
+            color: white;
+        }
+        .news-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+        }
+        /* Style untuk Slider Berita Baru */
+        .latest-news-slider {
+            position: relative;
+        }
+        .latest-news-slider .swiper-button-next,
+        .latest-news-slider .swiper-button-prev {
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .latest-news-slider .swiper-button-next:after,
+        .latest-news-slider .swiper-button-prev:after {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .latest-news-slider .swiper-pagination-bullet-active {
+            background-color: #166534;
         }
     </style>
 </head>
@@ -191,47 +179,46 @@
             </div>
         </div>
     </header>
-    <section id="gallery" class="py-16 bg-gradient-to-b from-gray-50 to-gray-100">
+
+    <main class="py-16 bg-gradient-to-b from-gray-50 to-gray-100">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">Galeri Kegiatan</h2>
                 <div class="w-24 h-1 bg-green-800 mx-auto mb-4"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto">Dokumentasi kegiatan dan program yang telah dilaksanakan oleh KUA Kecamatan Malili</p>
             </div>
-            
-            <div class="swiper gallery-swiper">
-                <div class="swiper-wrapper pb-10">
-                    </div>
-                
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next text-green-800"></div>
-                <div class="swiper-button-prev text-green-800"></div>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <button id="viewAllBtn" class="bg-green-800 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-full transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
-                    Lihat Semua Kegiatan
-                </button>
-            </div>
-        </div>
-    </section>
 
-    <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center p-4 border-b">
-                <h3 class="text-xl font-bold text-green-800">Semua Kegiatan KUA Kecamatan Malili</h3>
-                <button id="closeModal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="p-4">
-                <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <section class="mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <h3 class="text-2xl font-bold text-green-800 mb-4 border-b-2 border-green-700 pb-2">Berita Baru</h3>
+                        <div class="swiper latest-news-slider rounded-lg shadow-lg overflow-hidden">
+                            <div class="swiper-wrapper" id="new-news-container">
+                                </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
                     </div>
-            </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-green-800 mb-4 border-b-2 border-green-700 pb-2">Berita Top</h3>
+                        <div id="top-news-container" class="space-y-4">
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
+    
+                <div id="pagination-container" class="mt-12 flex justify-center items-center space-x-2">
+                    </div>
+            </section>
+
         </div>
-    </div>
+    </main>
+
     <footer class="bg-green-900 text-white pt-12 pb-6">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -286,9 +273,11 @@
             </div>
         </div>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
     <script>
-        // --- Navigation and Clock Script ---
+        // --- Navigation and Clock Script --- (Unchanged)
         function updateClock() {
             const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
             const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
@@ -344,270 +333,153 @@
             }
         });
 
-        document.querySelectorAll('a[href*="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('#') || href.includes('index.html#')) {
-                     // Allow default behavior for cross-page anchors
-                } else {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // --- Gallery-Specific Script ---
+        // --- UPDATED Gallery and Pagination Script ---
         document.addEventListener('DOMContentLoaded', function () {
             const galleryData = [
-               {
-                    imgSrc: "artikel/Foto/kegiatan_moderasi_beragama_20082025.jpg",
-                    imgAlt: "Suasana kegiatan Implementasi Kampung Moderasi Beragama di KUA Mangkutana.",
-                    title: "Penyuluh Agama KUA Malili Ikuti Implementasi Kampung Moderasi Beragama di KUA Mangkutana",
-                    description: "",
-                    date: "20 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/kua_kotamalili/",
-                    articleLink: "artikel/implementasi_kmb_20082025.html"
-                },
-               {
-                    imgSrc: "artikel/Foto/pelantikan_penghulu_supandi_19082025.jpg",
-                    imgAlt: "Kepala Kemenag Luwu Timur melantik pejabat fungsional.",
-                    title: "Supandi, S.Sy. Resmi Menjabat Fungsional Penghulu Ahli Pertama di KUA Malili",
-                    description: "",
-                    date: "19 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/kua_kotamalili/",
-                    articleLink: "artikel/pelantikan_fungsional_19082025.html"
-                },
-               {
-                    imgSrc: "artikel/Foto/anggota_kbci_riding_kemerdekaan_18082025.jpg",
-                    imgAlt: "Foto Bersama Anggota KBCI Luwu Timur.",
-                    title: "Semarakkan HUT Ke-80 RI, KBCI Luwu Timur Mengikuti Riding Kemerdekaan, Satukan Puluhan Bikers Lintas Komunitas",
-                    description: "",
-                    date: "18 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/kua_kotamalili/",
-                    articleLink: "artikel/riding_hut_ri_18082025.html"
-                },
-                {
-                    imgSrc: "artikel/Foto/upacara_hut_ri_kemenag_17082025.jpg",
-                    imgAlt: "Suasana Upacara HUT Ke-80 RI di halaman Kantor Kemenag Luwu Timur.",
-                    title: "Semangat HUT Ke-80 RI, Pegawai KUA Malili Ikuti Rangkaian Upacara Hingga Lomba Kreasi Nasi Tumpeng",
-                    description: "",
-                    date: "17 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/kua_kotamalili/",
-                    articleLink: "artikel/upacara_hut_ri_17082025.html"
-                },
-                {
-                    imgSrc: "artikel/Foto/renungan_suci_tmp_malili.jpg",
-                    imgAlt: "Suasana khidmat Apel Kehormatan dan Renungan Suci di Taman Makam Pahlawan Malili.",
-                    title: "Pimpin Doa di Renungan Suci, Penyuluh Agama Islam KUA Malili Ajak Refleksi Perjuangan Pahlawan",
-                    description: "",
-                    date: "17 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/kua_kotamalili/",
-                    articleLink: "artikel/renungan_17082025.html"
-                },
-                {
-                    imgSrc: "artikel/Foto/jalan_sehat_hut_ri.jpg",
-                    imgAlt: "Suasana Jalan Sehat Kerukunan Kemenag Luwu Timur di Bundaran Tiga Danau.",
-                    title: "Semarak HUT RI ke-80, Pegawai KUA Malili dan Jajaran Kemenag Luwu Timur Sukseskan Jalan Sehat Kerukunan",
-                    description: "",
-                    date: "16 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/p/DNZs0MRxmSt/",
-                    articleLink: "artikel/jalan_sehat_16082025.html"
-                },
-                {
-                    imgSrc: "Foto/lomba_hut_ri.jpg",
-                    imgAlt: "Suasana kemeriahan lomba dalam rangka HUT RI ke-80 di halaman Kemenag Luwu Timur.",
-                    title: "Semarak HUT RI ke-80, KUA Malili Memeriahkan Acara Lomba di Kemenag Luwu Timur",
-                    description: "",
-                    date: "15 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/p/DNZsKzJRQbE/",
-                    articleLink: "lomba hut 15082025.html"
-                },
-                {
-                    imgSrc: "Foto/gas 14082025.jpg",
-                    imgAlt: "Sosialisasi Gas di Desa Atue",
-                    title: "Penyuluh Agama KUA Islam Malili Sosialisasikan Gerakan Sadar Pencatatan Nikah di Desa Atue",
-                    description: "",
-                    date: "13 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/kua_kotamalili/",
-                    articleLink: "gas 14082025.html"
-                },
-                {
-                    imgSrc: "Foto/bimtek 12082025.jpg",
-                    imgAlt: "bimtek 12082025",
-                    title: "Tingkatkan Profesionalisme, PW IPARI Sulsel Gelar Bimtek Tupoksi Penyuluh Agama di Kemenag Luwu Timur",
-                    description: "",
-                    date: "12 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/p/DNQtQBhBmpp/",
-                    articleLink: "bimtek pai lutim 12082025.html"
-                },
-                {
-                    imgSrc: "Foto/nikah kantor 11082025.jpg",
-                    imgAlt: "Menikah Kantor 11082025",
-                    title: "Penuh Khidmat, Seorang Muallaf Sah Nikahi Kekasih Hati di KUA Malili",
-                    description: "",
-                    date: "11 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/p/DNMwVPaB86n/",
-                    articleLink: "pernikahan kantor 11082025.html"
-                },
-                {
-                    imgSrc: "Foto/TP PKK Desa Puncak Indah (10082025).jpg",
-                    imgAlt: "TP PKK Desa Puncak Indah (10082025)",
-                    title: "Sinergi KUA Malili dan PKK Puncak Indah, Sosialisasikan Gerakan Sadar Pencatatan Nikah",
-                    description: "",
-                    date: "10 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/p/DNKuRQsx296/",
-                    articleLink: "pkk puncak indah 10082025.html"
-                },
-                {
-                    imgSrc: "Foto/Majelis Taklim Nurul Iman (09082025).jpg",
-                    imgAlt: "Majelis Taklim Nurul Iman (09082025)",
-                    title: "PAI KUA Malili Gaungkan Gerakan Sadar Pencatatan Nikah di MT Nurul Iman",
-                    description: "",
-                    date: "09 Agustus 2025",
-                    instagramLink: "https://www.instagram.com/p/DNIfNTPh5mr/",
-                    articleLink: "Majelis Taklim Nurul Iman 08092025.html"
-                },
-                {
-                    imgSrc: "Foto/Bimbingan keluarga 31072025.jpg",
-                    imgAlt: "Bimbingan keluarga 31072025",
-                    title: "Perkuat Ketahanan Keluarga, Penyuluh dan Penghulu KUA Malili Gelar Bimbingan Keluarga Sakinah",
-                    description: "",
-                    date: "31 Juli 2025",
-                    instagramLink: "https://www.instagram.com/p/DMwh4s_Bs2q/",
-                    articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/perkuat-ketahanan-keluarga-penyuluh-dan.html"
-                },
-                {
-                    imgSrc: "Foto/Nikah KUA 31 Juli 2025.jpg",
-                    imgAlt: "Foto Nikah KUA 31 Juli 2025",
-                    title: "Sah! Pasangan Nur Hadis dan Nur Faizah Menikah di KUA Malili",
-                    description: "",
-                    date: "31 Juli 2025",
-                    instagramLink: "https://www.instagram.com/kua_kotamalili/",
-                    articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/sah-pasangan-nur-hadis-dan-nur-faizah.html"
-                },
-                {
-                    imgSrc: "Foto/Khitbah Nikah 27 Juli 2025.jpg",
-                    imgAlt: "Foto Prosesi Khitbah di Desa Puncak Indah",
-                    title: "Penuh Khidmat, Prosesi Khitbah Pertegas Anjuran dalam Syariat",
-                    description: "",
-                    date: "27 Juli 2025",
-                    instagramLink: "",
-                    articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/penuh-khidmat-prosesi-khitbah-pertegas.html"
-                },
-                {
-                    imgSrc: "Foto/FGD 24 Juli 2025.jpg",
-                    imgAlt: "Foto Kegiatan FGD",
-                    title: "FGD: Penguatan Deteksi Dini Konflik Berdimensi Keagamaan",
-                    description: "",
-                    date: "24 Juli 2023",
-                    instagramLink: "https://www.instagram.com/p/DMe7Bv4Rw18/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-                    articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/tingkatkan-kewaspadaan-penghulu-dan.html"
-                },
-                {
-                    imgSrc: "Foto/BRUS 23 Juli 2025.jpg",
-                    imgAlt: "Foto Kegiatan Sosialisasi BRUS KUA Malili",
-                    title: "Sosialisasi BRUS di MTS As'adiyah dan MAN Luwu Timur",
-                    description: "",
-                    date: "23 Juli 2025",
-                    instagramLink: "https://www.instagram.com/reel/DMcRVQVxvAi/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-                    articleLink: "https://siaran-berita.com/sosialisasi-brus-kua-malili-mengunjungi-mts-asadiyah-malili-dan-man-luwu-timur/"
-                }
+             { 
+            imgSrc: "artikel/Foto/penyuluhan_agama_katolik_smkn1_20082025.jpg", 
+            imgAlt: "Suasana kegiatan Implementasi Kampung Moderasi Beragama di KUA Mangkutana.", 
+            title: "Penyuluh Agama Katolik KUA Malili Bekali Siswa SMKN 1 Luwu Timur Pemahaman Gereja Sebagai Umat Allah", 
+            date: "20 Agustus 2025", 
+            articleLink: "artikel/penyuluh_katolik_kua_malili_materi_smkn1lutim_20082025.html" 
+            },
+            { 
+            imgSrc: "artikel/Foto/kegiatan_moderasi_beragama_20082025.jpg", 
+            imgAlt: "Suasana kegiatan Implementasi Kampung Moderasi Beragama di KUA Mangkutana.", 
+            title: "Penyuluh Agama KUA Malili Ikuti Implementasi Kampung Moderasi Beragama di KUA Mangkutana", 
+            date: "20 Agustus 2025", 
+            articleLink: "artikel/implementasi_kmb_20082025.html" 
+            },
+               { imgSrc: "artikel/Foto/pelantikan_penghulu_supandi_19082025.jpg", imgAlt: "Kepala Kemenag Luwu Timur melantik pejabat fungsional.", title: "Supandi, S.Sy. Resmi Menjabat Fungsional Penghulu Ahli Pertama di KUA Malili", date: "19 Agustus 2025", articleLink: "artikel/pelantikan_fungsional_19082025.html" },
+               { imgSrc: "artikel/Foto/anggota_kbci_riding_kemerdekaan_18082025.jpg", imgAlt: "Foto Bersama Anggota KBCI Luwu Timur.", title: "Semarakkan HUT Ke-80 RI, KBCI Luwu Timur Mengikuti Riding Kemerdekaan", date: "18 Agustus 2025", articleLink: "artikel/riding_hut_ri_18082025.html" },
+               { imgSrc: "artikel/Foto/upacara_hut_ri_kemenag_17082025.jpg", imgAlt: "Suasana Upacara HUT Ke-80 RI di halaman Kantor Kemenag Luwu Timur.", title: "Semangat HUT Ke-80 RI, Pegawai KUA Malili Ikuti Rangkaian Upacara", date: "17 Agustus 2025", articleLink: "artikel/upacara_hut_ri_17082025.html" },
+               { imgSrc: "artikel/Foto/renungan_suci_tmp_malili.jpg", imgAlt: "Suasana khidmat Apel Kehormatan dan Renungan Suci di Taman Makam Pahlawan Malili.", title: "Pimpin Doa di Renungan Suci, Penyuluh Agama Islam KUA Malili Ajak Refleksi", date: "17 Agustus 2025", articleLink: "artikel/renungan_17082025.html" },
+               { imgSrc: "artikel/Foto/jalan_sehat_hut_ri.jpg", imgAlt: "Suasana Jalan Sehat Kerukunan Kemenag Luwu Timur di Bundaran Tiga Danau.", title: "Semarak HUT RI ke-80, KUA Malili Sukseskan Jalan Sehat Kerukunan", date: "16 Agustus 2025", articleLink: "artikel/jalan_sehat_16082025.html" },
+               { imgSrc: "Foto/lomba_hut_ri.jpg", imgAlt: "Suasana kemeriahan lomba dalam rangka HUT RI ke-80 di halaman Kemenag Luwu Timur.", title: "Semarak HUT RI ke-80, KUA Malili Memeriahkan Acara Lomba", date: "15 Agustus 2025", articleLink: "lomba hut 15082025.html" },
+               { imgSrc: "Foto/gas 14082025.jpg", imgAlt: "Sosialisasi Gas di Desa Atue", title: "PAI KUA Islam Malili Sosialisasikan Gerakan Sadar Pencatatan Nikah di Desa Atue", date: "13 Agustus 2025", articleLink: "gas 14082025.html" },
+               { imgSrc: "Foto/bimtek 12082025.jpg", imgAlt: "bimtek 12082025", title: "PW IPARI Sulsel Gelar Bimtek Tupoksi Penyuluh Agama di Kemenag Luwu Timur", date: "12 Agustus 2025", articleLink: "bimtek pai lutim 12082025.html" },
+               { imgSrc: "Foto/nikah kantor 11082025.jpg", imgAlt: "Menikah Kantor 11082025", title: "Penuh Khidmat, Seorang Muallaf Sah Nikahi Kekasih Hati di KUA Malili", date: "11 Agustus 2025", articleLink: "pernikahan kantor 11082025.html" },
+               { imgSrc: "Foto/TP PKK Desa Puncak Indah (10082025).jpg", imgAlt: "TP PKK Desa Puncak Indah (10082025)", title: "Sinergi KUA Malili dan PKK Puncak Indah, Sosialisasikan Gerakan Sadar Pencatatan Nikah", date: "10 Agustus 2025", articleLink: "pkk puncak indah 10082025.html" },
+               { imgSrc: "Foto/Majelis Taklim Nurul Iman (09082025).jpg", imgAlt: "Majelis Taklim Nurul Iman (09082025)", title: "PAI KUA Malili Gaungkan Gerakan Sadar Pencatatan Nikah di MT Nurul Iman", date: "09 Agustus 2025", articleLink: "Majelis Taklim Nurul Iman 08092025.html" },
+               { imgSrc: "Foto/Bimbingan keluarga 31072025.jpg", imgAlt: "Bimbingan keluarga 31072025", title: "Perkuat Ketahanan Keluarga, KUA Malili Gelar Bimbingan Keluarga Sakinah", date: "31 Juli 2025", articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/perkuat-ketahanan-keluarga-penyuluh-dan.html" },
+               { imgSrc: "Foto/Nikah KUA 31 Juli 2025.jpg", imgAlt: "Foto Nikah KUA 31 Juli 2025", title: "Sah! Pasangan Nur Hadis dan Nur Faizah Menikah di KUA Malili", date: "31 Juli 2025", articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/sah-pasangan-nur-hadis-dan-nur-faizah.html" },
+               { imgSrc: "Foto/Khitbah Nikah 27 Juli 2025.jpg", imgAlt: "Foto Prosesi Khitbah di Desa Puncak Indah", title: "Penuh Khidmat, Prosesi Khitbah Pertegas Anjuran dalam Syariat", date: "27 Juli 2025", articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/penuh-khidmat-prosesi-khitbah-pertegas.html" },
+               { imgSrc: "Foto/FGD 24 Juli 2025.jpg", imgAlt: "Foto Kegiatan FGD", title: "FGD: Penguatan Deteksi Dini Konflik Berdimensi Keagamaan", date: "24 Juli 2023", articleLink: "https://kuakecamatanmalili.blogspot.com/2025/07/tingkatkan-kewaspadaan-penghulu-dan.html" },
+               { imgSrc: "Foto/BRUS 23 Juli 2025.jpg", imgAlt: "Foto Kegiatan Sosialisasi BRUS KUA Malili", title: "Sosialisasi BRUS di MTS As'adiyah dan MAN Luwu Timur", date: "23 Juli 2025", articleLink: "https://siaran-berita.com/sosialisasi-brus-kua-malili-mengunjungi-mts-asadiyah-malili-dan-man-luwu-timur/" }
             ];
 
-            function createGalleryCardHTML(item) {
-                return `
-                    <div class="gallery-card overflow-hidden rounded-lg shadow-md bg-white h-full flex flex-col">
-                        <div class="image-container relative">
-                            <img src="${item.imgSrc}" alt="${item.imgAlt}" class="w-full h-64 object-cover">
-                            <a href="${item.instagramLink}" target="_blank" class="social-link instagram-link ${!item.instagramLink ? 'hidden' : ''}" title="Lihat di Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-semibold text-lg text-green-800 flex-1">${item.title}</h3>
-                                <span class="text-xs text-gray-500 ml-2 whitespace-nowrap">${item.date}</span>
+            const ITEMS_PER_PAGE = 12;
+            let currentPage = 1;
+
+            const galleryGrid = document.getElementById('gallery-grid');
+            const paginationContainer = document.getElementById('pagination-container');
+            const newNewsContainer = document.getElementById('new-news-container');
+            const topNewsContainer = document.getElementById('top-news-container');
+
+            function renderGallery(page) {
+                currentPage = page;
+                galleryGrid.innerHTML = '';
+                const start = (page - 1) * ITEMS_PER_PAGE;
+                const end = start + ITEMS_PER_PAGE;
+                const paginatedItems = galleryData.slice(start, end);
+
+                paginatedItems.forEach(item => {
+                    const card = `
+                        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col" onclick="window.open('${item.articleLink}', '_blank');">
+                            <div class="overflow-hidden">
+                                <img src="${item.imgSrc}" alt="${item.imgAlt}" class="w-full h-48 object-cover">
                             </div>
-                            <p class="text-sm text-gray-600 mb-4 flex-grow">${item.description}</p>
-                            <a href="${item.articleLink}" target="_blank" class="read-more-link inline-block text-sm text-green-800 hover:text-green-600 font-medium mt-auto">
-                                Baca selengkapnya <i class="fas fa-arrow-right ml-1"></i>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <p class="text-xs text-gray-500 mb-1">${item.date}</p>
+                                <h3 class="font-semibold text-md text-green-800 flex-grow">${item.title}</h3>
+                                <span class="text-sm text-green-700 hover:text-green-600 font-medium mt-2 inline-block">
+                                    Baca selengkapnya →
+                                </span>
+                            </div>
+                        </div>`;
+                    galleryGrid.innerHTML += card;
+                });
+            }
+
+            function renderPagination() {
+                const pageCount = Math.ceil(galleryData.length / ITEMS_PER_PAGE);
+                paginationContainer.innerHTML = '';
+
+                paginationContainer.innerHTML += `
+                    <button onclick="changePage(currentPage - 1)" class="pagination-link px-3 py-1 rounded-md bg-white border border-gray-300 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}" ${currentPage === 1 ? 'disabled' : ''}> « </button>`;
+
+                for (let i = 1; i <= pageCount; i++) {
+                    paginationContainer.innerHTML += `
+                        <button onclick="changePage(${i})" class="pagination-link px-3 py-1 rounded-md border border-gray-300 ${i === currentPage ? 'active' : 'bg-white'}"> ${i} </button>`;
+                }
+
+                paginationContainer.innerHTML += `
+                    <button onclick="changePage(currentPage + 1)" class="pagination-link px-3 py-1 rounded-md bg-white border border-gray-300 ${currentPage === pageCount ? 'opacity-50 cursor-not-allowed' : ''}" ${currentPage === pageCount ? 'disabled' : ''}> » </button>`;
+            }
+
+            function renderBerita() {
+                // Render Berita Baru Slider (3 Berita Terbaru)
+                const latestNews = galleryData.slice(0, 3);
+                newNewsContainer.innerHTML = '';
+                latestNews.forEach(item => {
+                    newNewsContainer.innerHTML += `
+                        <div class="swiper-slide">
+                            <a href="${item.articleLink}" target="_blank" class="block news-card bg-white relative">
+                                <img src="${item.imgSrc}" alt="${item.imgAlt}" class="w-full h-80 object-cover">
+                                <div class="absolute bottom-0 left-0 w-full p-5 bg-gradient-to-t from-black to-transparent text-white">
+                                    <p class="text-sm mb-1">${item.date}</p>
+                                    <h3 class="text-xl font-bold">${item.title}</h3>
+                                </div>
                             </a>
                         </div>
-                    </div>
-                `;
-            }
-
-            function renderGalleries() {
-                const galleryWrapper = document.querySelector('.gallery-swiper .swiper-wrapper');
-                const galleryGrid = document.getElementById('galleryGrid');
-                let swiperHTML = '';
-                let gridHTML = '';
-                galleryData.forEach(item => {
-                    const cardHTML = createGalleryCardHTML(item);
-                    swiperHTML += `<div class="swiper-slide p-2">${cardHTML}</div>`;
-                    gridHTML += cardHTML;
+                    `;
                 });
-                if(galleryWrapper) galleryWrapper.innerHTML = swiperHTML;
-                if(galleryGrid) galleryGrid.innerHTML = gridHTML;
-            }
 
-            renderGalleries();
+                // Inisialisasi Swiper untuk Berita Baru
+                new Swiper('.latest-news-slider', {
+                    loop: true,
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
 
-            const swiper = new Swiper('.gallery-swiper', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                loop: true,
-                autoplay: { delay: 4000, disableOnInteraction: false },
-                pagination: { el: '.swiper-pagination', clickable: true },
-                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-                breakpoints: {
-                    640: { slidesPerView: 2, spaceBetween: 20 },
-                    1024: { slidesPerView: 3, spaceBetween: 30 }
-                }
-            });
-
-            const viewAllBtn = document.getElementById('viewAllBtn');
-            const galleryModal = document.getElementById('galleryModal');
-            const closeModalBtn = document.getElementById('closeModal');
-
-            if(viewAllBtn) {
-                viewAllBtn.addEventListener('click', () => {
-                    galleryModal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
+                // Render Berita Top (Berita ke-4 sampai ke-7)
+                const topNews = galleryData.slice(3, 7);
+                topNewsContainer.innerHTML = '';
+                topNews.forEach(item => {
+                    topNewsContainer.innerHTML += `
+                        <a href="${item.articleLink}" target="_blank" class="flex items-center space-x-4 p-3 bg-white rounded-lg shadow-sm news-card">
+                            <img src="${item.imgSrc}" alt="${item.imgAlt}" class="w-24 h-24 object-cover rounded-md flex-shrink-0">
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">${item.date}</p>
+                                <h4 class="font-semibold text-sm text-green-800 leading-tight">${item.title}</h4>
+                            </div>
+                        </a>
+                    `;
                 });
             }
 
-            const closeModal = () => {
-                if(galleryModal) {
-                    galleryModal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }
-            };
+            window.changePage = function(page) {
+                const pageCount = Math.ceil(galleryData.length / ITEMS_PER_PAGE);
+                if (page < 1 || page > pageCount) return;
+                renderGallery(page);
+                renderPagination();
+                window.scrollTo(0, document.getElementById('gallery-grid').offsetTop - 100);
+            }
 
-            if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-            if(galleryModal) galleryModal.addEventListener('click', (e) => {
-                if (e.target === galleryModal) closeModal();
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !galleryModal.classList.contains('hidden')) closeModal();
-            });
-
-            document.body.addEventListener('click', function(e) {
-                const card = e.target.closest('.gallery-card');
-                if (!card) return;
-                if (e.target.closest('.read-more-link') || e.target.closest('.instagram-link')) {
-                    return;
-                }
-                const articleLink = card.querySelector('.read-more-link').href;
-                if (articleLink) {
-                    window.open(articleLink, '_blank');
-                }
-            });
+            // Initial Render
+            renderBerita();
+            renderGallery(currentPage);
+            renderPagination();
         });
     </script>
 </body>
