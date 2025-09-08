@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri Kegiatan KUA Kecamatan Malili</title>
+    <title>Berita KUA Malili</title>
     <link rel="icon" type="image/png" href="Logo Kemenag/Logo kemanag.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <a href="layanan.html" class="nav-link text-white hover:text-green-200 transition-colors">Layanan</a>
-                    <a href="galeri.html" class="nav-link text-white hover:text-green-200 transition-colors">Galeri</a>
+                    <a href="galeri.html" class="nav-link text-white hover:text-green-200 transition-colors">Berita</a>
                     <a href="index.html#contact" class="nav-link text-white hover:text-green-200 transition-colors">Kontak</a>
                     <form action="search.html" method="GET" class="flex items-center">
                         <input type="search" name="q" placeholder="Cari..." class="px-2 py-1 text-sm text-gray-800 bg-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500">
@@ -167,7 +167,7 @@
                     </div>
                 </div>
                 <a href="layanan.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Layanan</a>
-                <a href="galeri.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Galeri</a>
+                <a href="galeri.html" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Berita</a>
                 <a href="index.html#contact" class="block py-2 text-white hover:bg-green-700 px-3 rounded">Kontak</a>
                  <div class="px-3 py-2">
                     <form action="search.html" method="GET" class="flex items-center">
@@ -184,9 +184,9 @@
     <main class="py-16 bg-gradient-to-b from-gray-50 to-gray-100">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">Galeri Kegiatan</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">Berita KUA</h2>
                 <div class="w-24 h-1 bg-green-800 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">Dokumentasi kegiatan dan program yang telah dilaksanakan oleh KUA Kecamatan Malili</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">Berita kegiatan dan program yang telah dilaksanakan oleh KUA Kecamatan Malili</p>
             </div>
 
             <section class="mb-12">
@@ -337,6 +337,13 @@
         // --- UPDATED Gallery and Pagination Script ---
         document.addEventListener('DOMContentLoaded', function () {
             const galleryData = [
+            { 
+            imgSrc: "artikel/Foto/penyuluhan_tahsin_baruga_08092025.jpg", 
+            imgAlt: "Suasana penyuluhan Tahsin Al-Qur'an oleh Penyuluh Agama Islam KUA Malili di Majelis Taklim Al Istiqomah, Desa Baruga.", 
+            title: "Penyuluh Agama Islam KUA Malili Gelar Penyuluhan Tahsin di Majelis Taklim Al Istiqomah Desa Baruga", 
+            date: "08 September 2025", 
+            articleLink: "artikel/kua-malili-penyuluhan-tahsin-baruga-08092025.html" 
+            },
             { 
             imgSrc: "artikel/Foto/istighosah_kemenag_lutim_04092025.jpg", 
             imgAlt: "Suasana Istighosah dan Zikir Bersama di Aula PLHUT Kantor Kemenag Luwu Timur.", 
