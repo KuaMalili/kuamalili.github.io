@@ -1,0 +1,10 @@
+/* ISI DARI FILE: ai-assistant/ai-assistant.css */
+
+#ai-chat-window {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+#ai-chat-window.hidden {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    pointer-events: none;
+}
