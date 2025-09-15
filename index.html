@@ -1158,5 +1158,17 @@ function renderNews(data, latestContainer, topContainer, baseUrl) {
     });
 </script>
 
+<link rel="stylesheet" href="ai-assistant/ai-assistant.css">
+    <div id="ai-container"></div>
+    <script>
+        fetch('ai-asistant/ai-assistant.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('ai-container').innerHTML = data;
+                const script = document.createElement('script');
+                script.src = 'ai-assistant/ai-assistant.js';
+                document.body.appendChild(script);
+            });
+    </script>
 </body>
 </html>
