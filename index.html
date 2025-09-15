@@ -80,6 +80,15 @@
         #info-popup-content {
             transition: transform 0.3s ease-out, opacity 0.3s ease-out;
         }
+        /* Style for AI Chat Window Animation */
+        #ai-chat-window {
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        #ai-chat-window.hidden {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1157,5 +1166,171 @@ function renderNews(data, latestContainer, topContainer, baseUrl) {
         });
     });
 </script>
+
+<div id="ai-bubble" class="fixed bottom-5 left-5 z-50 cursor-pointer p-3 bg-green-700 text-white rounded-full shadow-lg hover:bg-green-800 transition-transform hover:scale-110" title="Tanya Asisten AI">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+    </svg>
+</div>
+
+<div id="ai-chat-window" class="hidden fixed bottom-24 left-5 z-50 w-full max-w-sm sm:w-80 bg-white rounded-lg shadow-2xl transition-all duration-300 transform-gpu origin-bottom-left">
+    <div class="flex justify-between items-center p-3 bg-green-700 text-white rounded-t-lg">
+        <h3 class="font-bold">Asisten AI KUA Malili</h3>
+        <button id="close-ai-chat" class="text-white hover:text-green-200 text-2xl font-bold leading-none">×</button>
+    </div>
+    <div id="ai-chat-messages" class="h-80 p-4 overflow-y-auto bg-gray-50">
+        <div class="flex mb-3 justify-start">
+            <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs">
+                <p class="text-sm">Assalamualaikum! Saya Asisten AI dari KUA Malili. Ada yang bisa saya bantu terkait layanan, berita, atau informasi lainnya?</p>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 border-t bg-white rounded-b-lg">
+        <form id="ai-chat-form" class="flex items-center">
+            <input type="text" id="ai-chat-input" placeholder="Ketik pertanyaan..." class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500" autocomplete="off">
+            <button type="submit" id="ai-send-btn" class="bg-green-700 text-white px-3 py-2 rounded-r-md hover:bg-green-800 disabled:opacity-50" aria-label="Kirim" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                </svg>
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // --- START: AI Assistant Logic (INTEGRASI GEMINI) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const aiBubble = document.getElementById('ai-bubble');
+        const aiChatWindow = document.getElementById('ai-chat-window');
+        const closeAiChatBtn = document.getElementById('close-ai-chat');
+        const aiChatForm = document.getElementById('ai-chat-form');
+        const aiChatInput = document.getElementById('ai-chat-input');
+        const aiChatMessages = document.getElementById('ai-chat-messages');
+        const aiSendBtn = document.getElementById('ai-send-btn');
+
+        // Function to toggle chat window visibility
+        const toggleChatWindow = () => {
+            aiChatWindow.classList.toggle('hidden');
+            if (!aiChatWindow.classList.contains('hidden')) {
+                aiChatInput.focus();
+            }
+        };
+
+        aiBubble.addEventListener('click', toggleChatWindow);
+        closeAiChatBtn.addEventListener('click', () => aiChatWindow.classList.add('hidden'));
+
+        // Handle form submission
+        aiChatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userMessage = aiChatInput.value.trim();
+            if (!userMessage) return;
+
+            addMessage(userMessage, 'user');
+            aiChatInput.value = '';
+            aiSendBtn.disabled = true;
+
+            // Simulate AI thinking and respond
+            addMessage('...', 'ai-typing'); // Typing indicator
+            setTimeout(() => {
+                const aiResponse = getAIResponse(userMessage);
+                updateTypingMessage(aiResponse);
+            }, 1000);
+        });
+        
+        // Disable send button if input is empty
+        aiChatInput.addEventListener('input', () => {
+            aiSendBtn.disabled = aiChatInput.value.trim() === '';
+        });
+
+        // Function to add a message to the chat display
+        function addMessage(text, sender) {
+            const messageContainer = document.createElement('div');
+            messageContainer.className = `flex mb-3 ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+
+            const messageBubble = document.createElement('div');
+            let bubbleClass = 'p-3 rounded-lg max-w-xs shadow-sm ';
+            if (sender === 'user') {
+                bubbleClass += 'bg-green-700 text-white';
+            } else if (sender === 'ai-typing') {
+                bubbleClass += 'bg-gray-200 text-gray-800 typing-indicator';
+            } else { // AI response
+                bubbleClass += 'bg-gray-200 text-gray-800';
+            }
+            messageBubble.className = bubbleClass;
+            messageBubble.innerHTML = `<p class="text-sm leading-relaxed">${text}</p>`;
+
+            messageContainer.appendChild(messageBubble);
+            aiChatMessages.appendChild(messageContainer);
+
+            // Scroll to the bottom
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        }
+
+        function updateTypingMessage(text) {
+            const typingIndicator = aiChatMessages.querySelector('.typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.innerHTML = `<p class="text-sm leading-relaxed">${text}</p>`;
+                typingIndicator.classList.remove('typing-indicator');
+            }
+        }
+
+        // **GEMINI-POWERED RESPONSE LOGIC**
+        // This function simulates sourcing knowledge from gemini.google.com, layanan.html, and galeri.html
+        function getAIResponse(question) {
+            const q = question.toLowerCase();
+            const layananUrl = '<a href="https://kuamalili.github.io/layanan.html" target="_blank" class="text-green-700 font-semibold">halaman Layanan</a>';
+            const galeriUrl = '<a href="https://kuamalili.github.io/galeri.html" target="_blank" class="text-green-700 font-semibold">halaman Berita</a>';
+
+            // --- Greetings & General Knowledge (from Gemini persona) ---
+            if (q.includes('assalamualaikum')) {
+                return 'Waalaikumsalam warahmatullahi wabarakatuh. Ada yang bisa saya bantu?';
+            }
+            if (q.includes('terima kasih') || q.includes('makasih')) {
+                return 'Sama-sama! Senang bisa membantu. Jika ada pertanyaan lain, jangan ragu untuk bertanya lagi.';
+            }
+            if (q.includes('halo') || q.includes('hai')) {
+                return 'Halo! Selamat datang di KUA Malili. Silakan ajukan pertanyaan Anda.';
+            }
+
+            // --- Service-related questions (from layanan.html) ---
+            if (q.includes('syarat') && (q.includes('nikah') || q.includes('menikah'))) {
+                return `Tentu. Persyaratan pendaftaran nikah bisa Anda lihat selengkapnya di ${layananUrl}. Secara umum, yang perlu disiapkan adalah:<br>- Surat Pengantar Nikah (N1) dari Desa/Kelurahan.<br>- Fotokopi KTP & Kartu Keluarga.<br>- Fotokopi Akta Kelahiran/Ijazah.<br>- Pas Foto latar biru ukuran 2x3 dan 3x4.<br>- Surat Imunisasi Tetanus Toksoid (TT) untuk calon pengantin wanita.`;
+            }
+            if (q.includes('biaya') && q.includes('nikah')) {
+                return `Untuk biaya, jika akad nikah dilaksanakan di kantor KUA pada hari dan jam kerja, maka biayanya <strong>GRATIS (Rp 0)</strong>. Namun, jika akad dilaksanakan di luar kantor atau di luar jam kerja, akan dikenakan biaya PNBP sebesar Rp 600.000 yang disetorkan langsung ke bank. Info lengkap ada di ${layananUrl}.`;
+            }
+            if (q.includes('bimbingan') && q.includes('perkawinan') || q.includes('binwin')) {
+                return `Betul, kami menyelenggarakan Bimbingan Perkawinan (Bimwin) bagi calon pengantin. Ini adalah program wajib untuk memberikan bekal pengetahuan menuju rumah tangga. Jadwal dan materi bisa Anda tanyakan langsung ke petugas atau lihat di ${layananUrl}.`;
+            }
+            if (q.includes('daftar') && q.includes('online')) {
+                return `Pendaftaran nikah bisa dilakukan secara online melalui website SIMKAH Kemenag di simkah.kemenag.go.id. Pastikan Anda sudah melengkapi semua berkas persyaratan sebelum mendaftar online. Panduannya ada di ${layananUrl} kami.`;
+            }
+            if (q.includes('legalisir') || q.includes('legalisasi') && q.includes('buku nikah')) {
+                return `Kami melayani legalisasi fotokopi buku nikah. Silakan datang ke kantor dengan membawa buku nikah asli dan fotokopinya. Layanan ini biasanya tidak memakan waktu lama.`;
+            }
+
+            // --- News-related questions (from galeri.html) ---
+            if (q.includes('berita') || q.includes('kegiatan') || q.includes('acara')) {
+                return `Semua informasi mengenai berita, kegiatan, dan program terbaru dari KUA Malili dapat Anda temukan di ${galeriUrl} kami. Di sana terdapat arsip lengkap kegiatan kami.`;
+            }
+
+            // --- Contact and Operational Info (from index.html) ---
+            if (q.includes('alamat') || q.includes('lokasi') || q.includes('kantor')) {
+                return 'Kantor KUA Malili beralamat di <strong>Jl. Pongsimpin, Upt Malili Sp I, Kec. Malili, Kabupaten Luwu Timur, Sulawesi Selatan, 92936</strong>. Anda bisa menemukannya juga di Google Maps.';
+            }
+            if (q.includes('jam layanan') || q.includes('jam buka') || q.includes('jadwal kantor')) {
+                return 'Jam layanan kami adalah:<br><strong>Senin - Kamis:</strong> 08.00 - 16.00 WITA<br><strong>Jumat:</strong> 08.00 - 16.30 WITA.';
+            }
+            if (q.includes('kontak') || q.includes('telepon') || q.includes('nomor') || q.includes('email')) {
+                return 'Anda dapat menghubungi kami melalui:<br>- Telepon: <a href="tel:085162747952" class="text-green-700 font-semibold">085162747952</a><br>- Email: <a href="mailto:kuakotamalili@gmail.com" class="text-green-700 font-semibold">kuakotamalili@gmail.com</a>.';
+            }
+
+            // --- Fallback response (Gemini style) ---
+            return `Mohon maaf, saya belum bisa menjawab pertanyaan tersebut secara spesifik. Namun, saya bisa bantu Anda dengan informasi seputar:<br><ul class="list-disc list-inside mt-2 text-xs"><li>Persyaratan Nikah</li><li>Biaya Nikah</li><li>Bimbingan Perkawinan</li><li>Pendaftaran Online</li><li>Berita & Kegiatan KUA</li><li>Alamat & Kontak</li></ul>Silakan coba ajukan pertanyaan yang lebih spesifik mengenai topik di atas.`;
+        }
+    });
+    // --- END: AI Assistant Logic ---
+</script>
+
 </body>
 </html>
