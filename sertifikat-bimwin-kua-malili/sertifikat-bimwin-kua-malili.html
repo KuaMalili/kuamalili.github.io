@@ -97,6 +97,7 @@
 
         /* --- POSISI ELEMEN --- */
 
+        /* 1. Posisi Nomor Surat */
         .nomor-surat {
             position: absolute;
             top: 18.2%;
@@ -109,6 +110,7 @@
             background: transparent;
         }
 
+        /* 2. Posisi Nama Catin */
         .names-container {
             position: absolute;
             top: 52.5%;
@@ -139,16 +141,16 @@
             text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
         }
 
-        /* POSISI PARAGRAF (JUSTIFY) */
+        /* 3. Posisi Deskripsi & Tanggal */
         .date-paragraph {
             position: absolute;
             top: 67%;
-            left: 51%; /* Sedikit digeser biar pas tengah visual */
+            left: 51%;
             transform: translateX(-50%);
             width: 73%;
-            font-size: 14pt;
-            line-height: 1.2;
-            text-align: justify; /* Rata Kanan Kiri */
+            font-size: 12pt;
+            line-height: 1.5;
+            text-align: justify;
             background: transparent;
             font-weight: 500;
             color: #000;
@@ -175,8 +177,9 @@
     <div class="controls">
         <div class="full-width" style="text-align: center;">
             <h3>🛠️ Generator Sertifikat BIMWIN KUA</h3>
-            <p style="color: green; font-weight: bold;">✅ Template Terhubung Otomatis</p>
-            </div>
+            <input type="file" id="uploadBg" accept="image/*" onchange="previewImage(event)">
+            <small style="color: #666; display:block; margin-top:5px;">Upload template sertifikat (.JPG) di sini</small>
+        </div>
 
         <div class="full-width">
             <label>Nomor Surat</label>
@@ -200,7 +203,7 @@
     </div>
 
     <div class="certificate-wrapper">
-        <img id="sertifikatBg" src="template.jpg" alt="ERROR: Gambar 'template.jpg' tidak ditemukan di folder ini." class="bg-image">
+        <img id="sertifikatBg" src="" alt="Preview Background" class="bg-image">
 
         <div class="overlay-content">
             <div class="nomor-surat" id="outNomor">Nomor: b-58/kua.21.10.04/pw.01/1/2026</div>
@@ -221,33 +224,56 @@
 
     <script>
         function updateSertifikat() {
+            // Ambil nilai input
             var nomor = document.getElementById('inNomor').value;
-            var pria = document.getElementById('inPria').value.trim();
+            var pria = document.getElementById('inPria').value.trim(); // trim() untuk hapus spasi kosong
             var wanita = document.getElementById('inWanita').value.trim();
             var tanggalInput = document.getElementById('inTanggal').value;
 
+            // Element Output
             var outPria = document.getElementById('outPria');
             var outWanita = document.getElementById('outWanita');
             var outAmp = document.getElementById('elAmp');
 
-            // Logic Nama Pintar
+            // --- LOGIKA NAMA PINTAR ---
+            
+            // 1. Jika Keduanya Kosong (Tampilan Awal)
             if (!pria && !wanita) {
                 outPria.innerText = "CATIN PRIA";
                 outWanita.innerText = "CATIN WANITA";
-                outPria.style.display = 'block'; outWanita.style.display = 'block'; outAmp.style.display = 'block';
-            } else if (pria && wanita) {
-                outPria.innerText = pria; outWanita.innerText = wanita;
-                outPria.style.display = 'block'; outWanita.style.display = 'block'; outAmp.style.display = 'block';
-            } else if (pria && !wanita) {
+                outPria.style.display = 'block';
+                outWanita.style.display = 'block';
+                outAmp.style.display = 'block';
+            } 
+            // 2. Jika Keduanya Diisi (Mode Pasangan)
+            else if (pria && wanita) {
                 outPria.innerText = pria;
-                outPria.style.display = 'block'; outWanita.style.display = 'none'; outAmp.style.display = 'none';
-            } else if (!pria && wanita) {
                 outWanita.innerText = wanita;
-                outPria.style.display = 'none'; outWanita.style.display = 'block'; outAmp.style.display = 'none';
+                outPria.style.display = 'block';
+                outWanita.style.display = 'block';
+                outAmp.style.display = 'block';
+            }
+            // 3. Jika Hanya Pria/Baris 1 Diisi (Mode Tunggal)
+            else if (pria && !wanita) {
+                outPria.innerText = pria;
+                outPria.style.display = 'block';
+                outWanita.style.display = 'none'; // Sembunyikan Wanita
+                outAmp.style.display = 'none';    // Sembunyikan Simbol &
+            }
+            // 4. Jika Hanya Wanita/Baris 2 Diisi (Jaga-jaga user salah isi kolom)
+            else if (!pria && wanita) {
+                outWanita.innerText = wanita;
+                outPria.style.display = 'none';   // Sembunyikan Pria
+                outWanita.style.display = 'block';
+                outAmp.style.display = 'none';    // Sembunyikan Simbol &
             }
 
+            // --- UPDATE LAINNYA ---
+            
+            // Update Nomor Surat
             document.getElementById('outNomor').innerText = nomor ? nomor : "Nomor: b-58/kua.21.10.04/pw.01/1/2026";
 
+            // Update Tanggal
             if (tanggalInput) {
                 var date = new Date(tanggalInput);
                 var options = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -256,7 +282,16 @@
             }
         }
 
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                document.getElementById('sertifikatBg').src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
         window.onload = function() {
+            // Set default data
             document.getElementById('outTanggal').innerText = "29 Januari 2026";
             document.getElementById('inNomor').value = "Nomor: b-58/kua.21.10.04/pw.01/1/2026";
         };
