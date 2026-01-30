@@ -2,264 +2,292 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertifikat BIMWIN KUA Malili</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cetak Sertifikat BIMWIN KUA Malili</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- RESET & LAYOUT UMUM --- */
+        /* --- 1. RESET & UMUM --- */
+        * { box-sizing: border-box; }
+        
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #333;
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0;
-            padding: 20px;
         }
 
-        /* --- CONTROL PANEL --- */
+        /* --- 2. TAMPILAN UI (HP & PC) --- */
+        .app-header {
+            width: 100%; background: white; padding: 15px; text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
+        }
+
+        .main-wrapper {
+            width: 100%; max-width: 900px; padding: 20px; padding-bottom: 100px;
+            display: flex; flex-direction: column; gap: 20px;
+        }
+
         .controls {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 700px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .full-width { grid-column: span 2; }
-        
-        label {
-            font-size: 14px;
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
-            display: block;
-        }
-        
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            box-sizing: border-box;
+            background: white; padding: 20px; border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .btn-print {
-            grid-column: span 2;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .btn-print:hover { background-color: #0056b3; }
+        .input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px; }
+        label { font-size: 13px; font-weight: bold; color: #555; display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; margin-bottom: 15px; }
 
-        /* --- AREA KERTAS A4 --- */
-        .certificate-wrapper {
-            width: 210mm;
-            height: 297mm;
-            position: relative;
-            background-color: white;
+        /* --- 3. PREVIEW BOX (ZOOM) --- */
+        .preview-area {
+            background: #d4d4d4; padding: 20px; border-radius: 10px;
+            display: flex; justify-content: center; overflow: hidden;
+            border: 2px dashed #999;
+        }
+        
+        /* Wrapper Skala JS */
+        .scale-wrapper { transform-origin: top center; transition: transform 0.3s; }
+
+        /* --- 4. AREA SERTIFIKAT (A4) --- */
+        .certificate-container {
+            width: 210mm; height: 297mm; /* Ukuran Mutlak A4 */
+            position: relative; 
+            background: white; 
+            color: black;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
 
-        .bg-image {
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
+        /* Gambar Background menggunakan IMG tag (Lebih aman buat print daripada CSS Background) */
+        .cert-bg {
+            width: 100%; height: 100%; 
+            position: absolute; top: 0; left: 0; 
+            z-index: 0; /* Paling belakang */
+            object-fit: cover;
         }
 
-        .overlay-content {
-            position: absolute;
-            z-index: 10;
-            width: 100%;
-            height: 100%;
-            top: 0; 
-            left: 0;
+        /* Konten Teks */
+        .cert-content {
+            position: absolute; top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            z-index: 10; /* Di atas gambar */
             text-align: center;
         }
 
-        /* --- POSISI ELEMEN --- */
-
-        .nomor-surat {
-            position: absolute;
-            top: 18.2%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            font-size: 12pt;
-            font-weight: 700;
-            color: #000;
-            background: transparent;
+        /* Posisi Detail */
+        .text-nomor {
+            position: absolute; top: 18.2%; left: 0; right: 0;
+            font-size: 12pt; font-weight: 700;
+        }
+        
+        .names-box {
+            position: absolute; top: 52.5%; left: 0; right: 0; transform: translateY(-50%);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
 
-        .names-container {
-            position: absolute;
-            top: 52.5%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .name-main { font-size: 26pt; font-weight: 800; text-transform: uppercase; margin: 2px 0; }
+        .symbol-and { font-size: 20pt; font-weight: bold; margin: 0; }
+
+        .text-desc {
+            position: absolute; top: 67%; left: 51%; transform: translateX(-50%);
+            width: 73%; font-size: 12pt; line-height: 1.5; text-align: justify; font-weight: 500;
         }
 
-        .catin-name {
-            font-size: 26pt;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin: 5px 0;
-            color: #000;
-            text-shadow: 1px 1px 0px rgba(255,255,255,0.5); 
+        /* --- 5. TOMBOL PRINT --- */
+        .btn-float {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+            background: #007bff; color: white; padding: 15px 30px; 
+            border: none; border-radius: 50px; font-size: 16px; font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); cursor: pointer; z-index: 9999;
         }
 
-        .ampersand {
-            font-size: 20pt;
-            margin: 0;
-            font-weight: bold;
-            color: #000;
-            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        /* --- 6. MEDIA QUERY (HP) --- */
+        @media (max-width: 768px) {
+            .input-group { grid-template-columns: 1fr; }
+            .preview-area { padding: 5px; }
         }
 
-        /* POSISI PARAGRAF (JUSTIFY) */
-        .date-paragraph {
-            position: absolute;
-            top: 67%;
-            left: 51%; /* Sedikit digeser biar pas tengah visual */
-            transform: translateX(-50%);
-            width: 73%;
-            font-size: 12pt;
-            line-height: 1.2;
-            text-align: justify; /* Rata Kanan Kiri */
-            background: transparent;
-            font-weight: 500;
-            color: #000;
-        }
-
-        /* --- PRINT SETTINGS --- */
+        /* --- 7. SUPER FORCE PRINT (SOLUSI KERTAS KOSONG) --- */
         @media print {
-            body { background: none; margin: 0; padding: 0; }
-            .controls { display: none; }
-            .certificate-wrapper {
-                box-shadow: none;
-                margin: 0;
-                width: 210mm;
-                height: 297mm;
-                page-break-after: always;
-                -webkit-print-color-adjust: exact;
+            /* 1. Sembunyikan semua elemen UI */
+            .app-header, .controls, .btn-float, .preview-area {
+                display: none !important;
             }
-             @page { size: A4 portrait; margin: 0; }
+
+            /* 2. Reset Body */
+            body, html {
+                margin: 0; padding: 0; background: white;
+                height: 100%; width: 100%;
+            }
+
+            /* 3. Tampilkan HANYA Sertifikat */
+            .main-wrapper {
+                display: block !important; width: 100%; margin: 0; padding: 0; max-width: none;
+            }
+            .preview-area {
+                display: block !important; border: none; background: none; padding: 0; margin: 0;
+            }
+            .scale-wrapper {
+                transform: none !important; /* Matikan Zoom JS saat print */
+            }
+
+            /* 4. Paksa Gambar & Warna Muncul */
+            .certificate-container {
+                width: 210mm; height: 297mm;
+                position: absolute; top: 0; left: 0;
+                margin: 0; padding: 0;
+                box-shadow: none;
+                border: none;
+                
+                /* INI KUNCINYA: Memaksa browser mencetak background & warna */
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: white !important;
+            }
+
+            img.cert-bg {
+                /* Pastikan gambar dianggap konten utama */
+                display: block !important;
+                visibility: visible !important;
+                z-index: 0 !important;
+            }
+            
+            .cert-content {
+                z-index: 10 !important;
+            }
+
+            /* 5. Aturan Kertas */
+            @page {
+                size: A4 portrait;
+                margin: 0; /* Wajib 0 agar full page */
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="controls">
-        <div class="full-width" style="text-align: center;">
-            <h3>🛠️ Generator Sertifikat BIMWIN KUA</h3>
-            <p style="color: green; font-weight: bold;">✅ Template Terhubung Otomatis</p>
-            </div>
-
-        <div class="full-width">
-            <label>Nomor Surat</label>
-            <input type="text" id="inNomor" placeholder="Contoh: Nomor: b-58/kua.21.10.04/pw.01/1/2026" oninput="updateSertifikat()">
-        </div>
-
-        <div>
-            <label>Nama Baris 1 (Pria/Tunggal)</label>
-            <input type="text" id="inPria" placeholder="Isi nama..." oninput="updateSertifikat()">
-        </div>
-        <div>
-            <label>Nama Baris 2 (Wanita)</label>
-            <input type="text" id="inWanita" placeholder="Kosongkan jika hanya 1 orang" oninput="updateSertifikat()">
-        </div>
-        <div class="full-width">
-            <label>Tanggal Pelaksanaan</label>
-            <input type="date" id="inTanggal" onchange="updateSertifikat()">
-        </div>
-
-        <button class="btn-print" onclick="window.print()">🖨️ Cetak PDF</button>
+    <div class="app-header">
+        <h3>Generator Sertifikat BIMWIN KUA Malili</h3>
     </div>
 
-    <div class="certificate-wrapper">
-        <img id="sertifikatBg" src="template.jpg" alt="ERROR: Gambar 'template.jpg' tidak ditemukan di folder ini." class="bg-image">
-
-        <div class="overlay-content">
-            <div class="nomor-surat" id="outNomor">Nomor: b-58/kua.21.10.04/pw.01/1/2026</div>
-
-            <div class="names-container">
-                <div class="catin-name" id="outPria">CATIN PRIA</div>
-                <div class="ampersand" id="elAmp">&</div>
-                <div class="catin-name" id="outWanita">CATIN WANITA</div>
+    <div class="main-wrapper">
+        <div class="controls">
+            <div>
+                <label>Nomor Surat</label>
+                <input type="text" id="inNomor" oninput="updateData()" placeholder="Nomor Surat...">
             </div>
+            <div class="input-group">
+                <div>
+                    <label>Nama Baris 1</label>
+                    <input type="text" id="inPria" oninput="updateData()" placeholder="Nama Lengkap">
+                </div>
+                <div>
+                    <label>Nama Baris 2</label>
+                    <input type="text" id="inWanita" oninput="updateData()" placeholder="(Opsional)">
+                </div>
+            </div>
+            <div>
+                <label>Tanggal</label>
+                <input type="date" id="inTanggal" onchange="updateData()">
+            </div>
+        </div>
 
-            <div class="date-paragraph">
-                Bimbingan Perkawinan Bagi Calon Pengantin yang dilaksanakan oleh
-                Kantor Urusan Agama (KUA) Malili pada tanggal <strong id="outTanggal">29 Januari 2026</strong>
-                Bertempat di Balai Nikah Kantor Urusan Agama Malili.
+        <div class="preview-area" id="previewArea">
+            <div class="scale-wrapper" id="scaleWrapper">
+                
+                <div class="certificate-container">
+                    <img src="template.jpg" class="cert-bg" alt="Gagal memuat template.jpg">
+
+                    <div class="cert-content">
+                        <div class="text-nomor" id="outNomor">Nomor: b-58/kua.21.10.04/pw.01/1/2026</div>
+
+                        <div class="names-box">
+                            <div class="name-main" id="outPria">CATIN PRIA</div>
+                            <div class="symbol-and" id="outAnd">&</div>
+                            <div class="name-main" id="outWanita">CATIN WANITA</div>
+                        </div>
+
+                        <div class="text-desc">
+                            Bimbingan Perkawinan Bagi Calon Pengantin yang dilaksanakan oleh
+                            Kantor Urusan Agama (KUA) Malili pada tanggal <strong id="outTanggal">29 Januari 2026</strong>
+                            Bertempat di Balai Nikah Kantor Urusan Agama Malili.
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+
+    <button class="btn-float" onclick="doPrint()">🖨️ CETAK / PDF</button>
 
     <script>
-        function updateSertifikat() {
-            var nomor = document.getElementById('inNomor').value;
-            var pria = document.getElementById('inPria').value.trim();
-            var wanita = document.getElementById('inWanita').value.trim();
-            var tanggalInput = document.getElementById('inTanggal').value;
+        // 1. UPDATE DATA
+        function updateData() {
+            let nomor = document.getElementById('inNomor').value;
+            let pria = document.getElementById('inPria').value.trim();
+            let wanita = document.getElementById('inWanita').value.trim();
+            let tgl = document.getElementById('inTanggal').value;
 
-            var outPria = document.getElementById('outPria');
-            var outWanita = document.getElementById('outWanita');
-            var outAmp = document.getElementById('elAmp');
+            // Logic Nama
+            let elPria = document.getElementById('outPria');
+            let elWanita = document.getElementById('outWanita');
+            let elAnd = document.getElementById('outAnd');
 
-            // Logic Nama Pintar
-            if (!pria && !wanita) {
-                outPria.innerText = "CATIN PRIA";
-                outWanita.innerText = "CATIN WANITA";
-                outPria.style.display = 'block'; outWanita.style.display = 'block'; outAmp.style.display = 'block';
-            } else if (pria && wanita) {
-                outPria.innerText = pria; outWanita.innerText = wanita;
-                outPria.style.display = 'block'; outWanita.style.display = 'block'; outAmp.style.display = 'block';
-            } else if (pria && !wanita) {
-                outPria.innerText = pria;
-                outPria.style.display = 'block'; outWanita.style.display = 'none'; outAmp.style.display = 'none';
-            } else if (!pria && wanita) {
-                outWanita.innerText = wanita;
-                outPria.style.display = 'none'; outWanita.style.display = 'block'; outAmp.style.display = 'none';
+            if(!pria && !wanita) { // Kosong semua
+                elPria.innerText = "CATIN PRIA"; elPria.style.display='block';
+                elWanita.innerText = "CATIN WANITA"; elWanita.style.display='block';
+                elAnd.style.display='block';
+            } else if(pria && wanita) { // Ada dua-duanya
+                elPria.innerText = pria; elPria.style.display='block';
+                elWanita.innerText = wanita; elWanita.style.display='block';
+                elAnd.style.display='block';
+            } else if(pria && !wanita) { // Cuma Pria
+                elPria.innerText = pria; elPria.style.display='block';
+                elWanita.style.display='none'; elAnd.style.display='none';
+            } else if(!pria && wanita) { // Cuma Wanita
+                elWanita.innerText = wanita; elWanita.style.display='block';
+                elPria.style.display='none'; elAnd.style.display='none';
             }
 
-            document.getElementById('outNomor').innerText = nomor ? nomor : "Nomor: b-58/kua.21.10.04/pw.01/1/2026";
-
-            if (tanggalInput) {
-                var date = new Date(tanggalInput);
-                var options = { day: 'numeric', month: 'long', year: 'numeric' };
-                var tglIndo = date.toLocaleDateString('id-ID', options);
-                document.getElementById('outTanggal').innerText = tglIndo;
+            // Update Lainnya
+            document.getElementById('outNomor').innerText = nomor || "Nomor: b-58/kua.21.10.04/pw.01/1/2026";
+            
+            if(tgl) {
+                let d = new Date(tgl);
+                document.getElementById('outTanggal').innerText = d.toLocaleDateString('id-ID', {day: 'numeric', month: 'long', year: 'numeric'});
+            } else {
+                document.getElementById('outTanggal').innerText = "29 Januari 2026";
             }
         }
 
+        // 2. AUTO ZOOM (RESPONSIF)
+        function resizeCert() {
+            let container = document.getElementById('previewArea');
+            let wrapper = document.getElementById('scaleWrapper');
+            // Lebar A4 ~794px
+            let scale = Math.min((container.offsetWidth - 20) / 794, 1);
+            
+            wrapper.style.transform = `scale(${scale})`;
+            // Tinggi A4 ~1123px
+            container.style.height = (1123 * scale + 50) + 'px';
+        }
+
+        // 3. FUNGSI PRINT AMAN
+        function doPrint() {
+            // Peringatan agar user mengaktifkan Background Graphics
+            alert("PENTING:\n\n1. Pastikan pilih Ukuran Kertas: 'A4'\n2. Pastikan Margin: 'None' / 'Tiada'\n3. Pastikan 'Background Graphics' DICENTANG di pengaturan print agar gambar muncul!");
+            window.print();
+        }
+
+        window.addEventListener('resize', resizeCert);
         window.onload = function() {
-            document.getElementById('outTanggal').innerText = "29 Januari 2026";
-            document.getElementById('inNomor').value = "Nomor: b-58/kua.21.10.04/pw.01/1/2026";
-        };
+            updateData();
+            resizeCert();
+        }
     </script>
 </body>
 </html>
